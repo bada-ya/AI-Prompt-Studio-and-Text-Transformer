@@ -10402,10 +10402,33 @@
     try {
       initGeminiChat();
     } catch(e) {
-      console.warn('initGeminiChat error:', e);
-    }
+    // 1. Zero-Click Seamless Migration Receiver (from solokjd-eng bridge)
+    (function() {
+      try {
+        if (window.location.hash && window.location.hash.includes('bada_mig=')) {
+          const match = window.location.hash.match(/bada_mig=([^&]+)/);
+          if (match && match[1]) {
+            const rawJson = decodeURIComponent(match[1]);
+            const data = JSON.parse(rawJson);
+            let count = 0;
+            Object.keys(data).forEach(k => {
+              localStorage.setItem(k, typeof data[k] === 'string' ? data[k] : JSON.stringify(data[k]));
+              count++;
+            });
+            localStorage.setItem('bada_migration_dismissed', 'true');
+            // Clean up URL hash
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+            alert(`🎉 이전 계정(solokjd-eng)의 프리셋 및 설정 ${count}개가 100% 완전 자동 복원되었습니다!`);
+            location.reload();
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn('Auto migration error:', err);
+      }
+    })();
 
-    // Bada Migration Auto Launcher
+    // 2. Bada Migration Manual Launcher
     (function() {
       if (localStorage.getItem('bada_migration_dismissed') === 'true') return;
 
