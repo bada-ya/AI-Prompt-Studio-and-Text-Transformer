@@ -10402,6 +10402,9 @@
     try {
       initGeminiChat();
     } catch(e) {
+      console.warn('initGeminiChat error:', e);
+    }
+
     // 1. Zero-Click Seamless Migration Receiver (from solokjd-eng bridge)
     (function() {
       try {
