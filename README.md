@@ -9,9 +9,9 @@
 [![HTML5 Single File](https://img.shields.io/badge/Architecture-Single--File%20HTML5-blue.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![Google Gemini API](https://img.shields.io/badge/AI%20Engine-Google%20Gemini%20API-orange.svg)](https://ai.google.dev/)
 [![Local LLM Supported](https://img.shields.io/badge/Local%20LLM-Ollama%20%7C%20LM%20Studio-purple.svg)](https://ollama.ai/)
-[![GitHub Pages Live](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-green.svg)](https://solokjd-eng.github.io/AI-Prompt-Studio-and-Text-Transformer/)
+[![GitHub Pages Live](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-green.svg)](https://bada-ya.github.io/AI-Prompt-Studio-and-Text-Transformer/)
 
-👉 **[🌐 웹 브라우저에서 바로 실행하기 (GitHub Pages)](https://solokjd-eng.github.io/AI-Prompt-Studio-and-Text-Transformer/)**
+👉 **[🌐 웹 브라우저에서 바로 실행하기 (GitHub Pages)](https://bada-ya.github.io/AI-Prompt-Studio-and-Text-Transformer/)**
 
 </div>
 
@@ -162,12 +162,12 @@
 
 ### 방법 1. 웹 브라우저에서 바로 사용 (가장 간편함)
 별도 설치 없이 아래 링크를 클릭하면 즉시 사용할 수 있습니다:  
-👉 **[https://solokjd-eng.github.io/AI-Prompt-Studio-and-Text-Transformer/](https://solokjd-eng.github.io/AI-Prompt-Studio-and-Text-Transformer/)**
+👉 **[https://bada-ya.github.io/AI-Prompt-Studio-and-Text-Transformer/](https://bada-ya.github.io/AI-Prompt-Studio-and-Text-Transformer/)**
 
 ### 방법 2. 로컬 PC에서 실행하기
 1. 저장소를 다운로드하거나 Git으로 클론합니다:
    ```bash
-   git clone https://github.com/solokjd-eng/AI-Prompt-Studio-and-Text-Transformer.git
+   git clone https://github.com/bada-ya/AI-Prompt-Studio-and-Text-Transformer.git
    ```
 2. 다운로드된 폴더의 `index.html` 파일을 더블클릭하거나, Windows 사용자는 `열기.bat`를 실행합니다.
 
