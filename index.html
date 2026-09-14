@@ -43,6 +43,168 @@
       --radius-xl: 20px;
     }
 
+    /* ==========================================
+       Multi-Theme Eye Comfort Color System
+       ========================================== */
+    body.theme-slate {
+      --bg-base: #11141c;
+      --bg-surface: #181d27;
+      --bg-surface-elevated: #222938;
+      --bg-input: #131720;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --border-focus: #6366f1;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --minimax-accent: #6366f1;
+      --minimax-glow: rgba(99, 102, 241, 0.25);
+      --krea-accent: #38bdf8;
+      --krea-glow: rgba(56, 189, 248, 0.25);
+    }
+    body.theme-slate header {
+      background: rgba(24, 29, 39, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.theme-slate .model-tab-btn.active,
+    body.theme-slate .nav-tab.active {
+      background: #4f46e5;
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(79, 70, 229, 0.4);
+    }
+    body.theme-slate .btn-main-generate {
+      background: linear-gradient(135deg, #4f46e5, #4338ca);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35);
+    }
+    body.theme-slate .btn-main-generate:hover {
+      box-shadow: 0 6px 24px rgba(79, 70, 229, 0.45);
+    }
+    body.theme-slate .panel-header-title {
+      color: #818cf8;
+    }
+
+    body.theme-amber {
+      --bg-base: #18181b;
+      --bg-surface: #222227;
+      --bg-surface-elevated: #2c2c34;
+      --bg-input: #1a1a1e;
+      --border-color: rgba(255, 255, 255, 0.11);
+      --border-focus: #f59e0b;
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --minimax-accent: #f59e0b;
+      --minimax-glow: rgba(245, 158, 11, 0.25);
+      --krea-accent: #f59e0b;
+      --krea-glow: rgba(245, 158, 11, 0.25);
+    }
+    body.theme-amber header {
+      background: rgba(34, 34, 39, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.theme-amber .brand.minimax .brand-logo-badge,
+    body.theme-amber .brand.krea .brand-logo-badge {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+    body.theme-amber .model-tab-btn.active,
+    body.theme-amber .nav-tab.active {
+      background: #d97706;
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(217, 119, 6, 0.4);
+    }
+    body.theme-amber .btn-main-generate {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(217, 119, 6, 0.35);
+    }
+    body.theme-amber .btn-main-generate:hover {
+      box-shadow: 0 6px 24px rgba(217, 119, 6, 0.45);
+    }
+    body.theme-amber .panel-header-title {
+      color: #fbbf24;
+    }
+
+    body.theme-teal {
+      --bg-base: #0d1518;
+      --bg-surface: #142125;
+      --bg-surface-elevated: #1b2d33;
+      --bg-input: #101a1d;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --border-focus: #0d9488;
+      --text-main: #e0f2fe;
+      --text-muted: #94a3b8;
+      --text-dim: #5eead4;
+      --minimax-accent: #0d9488;
+      --minimax-glow: rgba(13, 148, 136, 0.25);
+      --krea-accent: #0d9488;
+      --krea-glow: rgba(13, 148, 136, 0.25);
+    }
+    body.theme-teal header {
+      background: rgba(20, 33, 37, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.theme-teal .brand.minimax .brand-logo-badge,
+    body.theme-teal .brand.krea .brand-logo-badge {
+      background: linear-gradient(135deg, #0d9488, #0f766e);
+    }
+    body.theme-teal .model-tab-btn.active,
+    body.theme-teal .nav-tab.active {
+      background: #0d9488;
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(13, 148, 136, 0.4);
+    }
+    body.theme-teal .btn-main-generate {
+      background: linear-gradient(135deg, #0d9488, #047857);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(13, 148, 136, 0.35);
+    }
+    body.theme-teal .btn-main-generate:hover {
+      box-shadow: 0 6px 24px rgba(13, 148, 136, 0.45);
+    }
+    body.theme-teal .panel-header-title {
+      color: #2dd4bf;
+    }
+
+    body.theme-classic {
+      /* Uses default :root colors (Original Deep Black) */
+    }
+
+    /* Theme Switcher Button Styling */
+    .btn-theme-toggle {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+    .btn-theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+    .btn-theme-toggle:active {
+      transform: translateY(0);
+    }
+    .btn-theme-toggle .theme-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6366f1;
+      transition: all 0.3s;
+    }
+    body.theme-slate .btn-theme-toggle .theme-dot { background: #6366f1; box-shadow: 0 0 6px #6366f1; }
+    body.theme-amber .btn-theme-toggle .theme-dot { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+    body.theme-teal .btn-theme-toggle .theme-dot { background: #0d9488; box-shadow: 0 0 6px #0d9488; }
+    body.theme-classic .btn-theme-toggle .theme-dot { background: #10b981; box-shadow: 0 0 6px #10b981; }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -130,6 +292,80 @@
       font-weight: 600;
       color: var(--text-muted);
     }
+
+    /* Header Left Layout with App Title */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .header-app-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-color);
+      opacity: 0.9;
+    }
+
+    .header-app-title-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-app-title {
+      font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1080px) {
+      .header-app-title {
+        display: none;
+      }
+      .header-app-divider {
+        display: none;
+      }
+    }
+
+    /* Header Version Button */
+    .btn-version {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-family: 'Outfit', 'Fira Code', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+    .btn-version:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+    .btn-version:active {
+      transform: translateY(0);
+    }
+    .btn-version .version-tag {
+      color: #38bdf8;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+    body.theme-slate .btn-version .version-tag { color: #818cf8; }
+    body.theme-amber .btn-version .version-tag { color: #fbbf24; }
+    body.theme-teal .btn-version .version-tag { color: #2dd4bf; }
+    body.theme-classic .btn-version .version-tag { color: #34d399; }
 
     .header-actions {
       display: flex;
@@ -291,10 +527,108 @@
     .submode-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .submode-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     .submode-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .submode-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
 
+    @media (max-width: 960px) {
+      .submode-grid.cols-6 { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 640px) {
+      .submode-grid.cols-6 { grid-template-columns: repeat(2, 1fr); }
       .submode-grid.cols-5 { grid-template-columns: repeat(3, 1fr); }
       .submode-grid.cols-3 { grid-template-columns: 1fr; }
+    }
+
+    /* Preset Management Modal Styles */
+    .preset-model-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    .preset-model-tab-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preset-model-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+    .preset-model-tab-btn.active {
+      background: #4f46e5;
+      border-color: #6366f1;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+    }
+    .preset-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      gap: 8px;
+    }
+    .preset-list-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .preset-list-item.active {
+      border-color: var(--border-focus);
+      background: rgba(99, 102, 241, 0.12);
+    }
+    .preset-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .preset-item-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .preset-item-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .preset-move-btns {
+      display: flex;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .btn-move-preset {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-move-preset:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .submode-card {
@@ -1823,6 +2157,118 @@
       font-size: 12px;
       font-weight: 700;
       color: var(--text-muted);
+    }
+
+    /* Modal Attached Images Thumbnails & Actions */
+    .modal-attached-thumb {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #0f172a;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s, box-shadow 0.2s;
+    }
+    .modal-attached-thumb:hover {
+      transform: translateY(-2px) scale(1.04);
+      border-color: #38bdf8;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+    }
+    .modal-attached-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .modal-attached-thumb-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      color: #38bdf8;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .btn-restore-apply {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 9px 18px;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-restore-apply:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
+      filter: brightness(1.1);
+    }
+    .btn-restore-apply:active {
+      transform: translateY(1px);
+    }
+
+    /* Stop Action Buttons Styles */
+    .btn-main-stop {
+      background: rgba(239, 68, 68, 0.16);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+      font-weight: 700;
+      padding: 0 16px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+    .btn-main-stop:hover {
+      background: #ef4444;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+    }
+    .btn-main-stop:active {
+      transform: translateY(1px);
+    }
+
+    .btn-tf-stop {
+      background: rgba(239, 68, 68, 0.16);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-tf-stop:hover {
+      background: #ef4444;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+    }
+    .btn-tf-stop:active {
+      transform: translateY(1px);
     }
 
     .form-input {
@@ -3435,17 +3881,45 @@
 </style>
 </head>
 <body>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('prompt_studio_theme') || 'slate';
+        document.body.classList.add('theme-' + t);
+      } catch(e) {}
+    })();
+  </script>
 
   <!-- Top Global Header -->
   <header>
-    <div class="brand" id="brandContainer">
-      <div class="brand-logo-badge" id="headerLogoBadge">KR2</div>
-      <div class="brand-title-wrap">
-        <span class="brand-title" id="headerTitle">KREA 2 <span class="brand-sub-title">Prompt Architect</span></span>
+    <div class="header-left">
+      <div class="brand" id="brandContainer">
+        <div class="brand-logo-badge" id="headerLogoBadge">KR2</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title" id="headerTitle">KREA 2 <span class="brand-sub-title">Prompt Architect</span></span>
+        </div>
+      </div>
+      
+      <div class="header-app-divider"></div>
+      
+      <div class="header-app-title-wrap">
+        <span class="header-app-title">AI Prompt Studio and Text Transformer</span>
       </div>
     </div>
     
     <div class="header-actions">
+      <!-- Version & Changelog Badge Button -->
+      <button class="btn-version" id="btnVersionChangelog" title="버전 업데이트 내역 (v1.0.2) 보기">
+        <span class="version-tag">v1.0.2</span>
+      </button>
+
+      <!-- Theme Switcher Button (Cycles: Slate -> Amber -> Teal -> Classic) -->
+      <button class="btn-theme-toggle" id="btnThemeToggle" title="테마 전환 (클릭 시 순환: 슬레이트 ➔ 웜 앰버 ➔ 노르딕 틸 ➔ 클래식)">
+        <span class="theme-dot" id="themeDot"></span>
+        <span class="theme-icon" id="themeIcon">🎨</span>
+        <span class="theme-name" id="themeNameLabel">슬레이트</span>
+      </button>
+
       <!-- Notification Center Bell Icon -->
       <div class="notification-container" id="notificationContainer">
         <button class="btn-header btn-bell" id="btnNotificationBell" title="알림 및 오류 내역 센터">
@@ -3611,10 +4085,15 @@
             </div>
           </div>
 
-          <!-- Main Action Generate Button -->
-          <button class="btn-main-generate" id="btnGenerate">
-            <span id="generateBtnText">KREA 2 프롬프트 생성 🚀</span>
-          </button>
+          <!-- Main Action Generate Button Group -->
+          <div class="generate-btn-group" style="display: flex; gap: 8px; width: 100%;">
+            <button class="btn-main-generate" id="btnGenerate" style="flex: 1;">
+              <span id="generateBtnText">KREA 2 프롬프트 생성 🚀</span>
+            </button>
+            <button class="btn-main-stop" id="btnStopGenerate" type="button" style="display: none;" title="프롬프트 생성 즉시 중지">
+              <span>⏹️ 생성 중지</span>
+            </button>
+          </div>
 
         </div>
       </div>
@@ -3689,6 +4168,9 @@
               <span id="tfBtnIcon">✨</span>
               <span id="tfBtnText">가공 시작</span>
               <span style="font-size: 10px; opacity: 0.7; background: rgba(255,255,255,0.2); padding: 2px 5px; border-radius: 4px;">Ctrl+Enter</span>
+            </button>
+            <button class="btn-tf-stop" id="btnStopTransformer" type="button" style="display: none;" title="텍스트 가공 즉시 중지">
+              <span>⏹️ 중지</span>
             </button>
           </div>
         </div>
@@ -4222,6 +4704,234 @@
 
   <!-- Modals -->
 
+  <!-- 0. Changelog / Update History Modal -->
+  <div class="modal-backdrop" id="changelogModal">
+    <div class="modal-box" style="max-width: 680px; max-height: 85vh; overflow-y: auto;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">🚀</span>
+          <span class="modal-title" style="font-size: 17px; font-weight: 800;">업데이트 내역 (Release Notes)</span>
+        </div>
+        <button class="btn-close-modal" id="btnCloseChangelogModal">✕</button>
+      </div>
+      
+      <div class="changelog-content" style="padding: 10px 0; display: flex; flex-direction: column; gap: 16px;">
+        
+        <!-- v1.0.2 Entry -->
+        <div class="changelog-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px 18px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; font-family: monospace;">v1.0.2</span>
+              <strong style="font-size: 15px; color: var(--text-main);">사용자 지정 시스템 프롬프트 프리셋, 상세 뷰어 및 생성 제어 고도화</strong>
+            </div>
+            <span style="font-size: 12px; color: var(--text-muted); font-weight: 600;">2026.09.14</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--text-main);">
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">⚙️</span>
+              <div>
+                <strong>사용자 지정 시스템 프롬프트 풀 프리셋 관리 시스템</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • MiniMax H3 및 LTX-Video 모드에 '시스템 프롬프트 (사용자 지정 프리셋)' 신설<br>
+                  • 모델별 전용 시스템 프롬프트를 자유롭게 작성, 수정, 순서 이동(▲/▼), 삭제할 수 있는 풀 프리셋 매니저 모달 탑재<br>
+                  • 선택된 프리셋 지침이 Gemini AI 생성 엔진에 100% 반영되어 나만의 전용 프롬프트 스타일 구축 가능
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🪟</span>
+              <div>
+                <strong>프롬프트 상세 보기 모달 고도화 & 라이트박스 뷰어</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • 생성 결과 및 히스토리에서 '프롬프트 보기' 시 원본 요청 내용(텍스트 + 첨부 이미지 썸네일)을 함께 확인<br>
+                  • 이미지 클릭 시 고화질로 확대 감상할 수 있는 반응형 라이트박스 뷰어 연동<br>
+                  • 영문 마스터 프롬프트 및 한국어 번역 프롬프트 분리 뷰 & 개별 원클릭 복사 지원
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🔄</span>
+              <div>
+                <strong>원클릭 입력창 복원 & 즉시 재생성 준비 기능</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  상세 보기 모달 내 <strong>'🔄 이 설정으로 입력창에 반영'</strong> 클릭 시 해당 모델 탭 전환, 모드 및 프리셋 설정, 옵션, 입력 텍스트와 첨부 이미지까지 원클릭으로 복원하여 즉시 재실행 가능.
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">⏹️</span>
+              <div>
+                <strong>전방위 생성 즉시 중지 (Stop / Abort) 제어</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • <strong>프롬프트 생성기</strong>: AI 생성 진행 중 즉시 중지 버튼으로 불필요한 대기 및 네트워크 낭비 차단<br>
+                  • <strong>텍스트 가공 도구</strong>: 대용량 청크 반복 변환 중 언제든 즉시 안전 중단<br>
+                  • <strong>일괄 가공 모달</strong>: 다중 파일 순차 변환 중 즉시 안전 중단
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🛡️</span>
+              <div>
+                <strong>스마트 로컬 스토리지 쿼터 보호</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  대용량 다중 이미지 첨부 시 브라우저 로컬 저장소 5MB 초과(QuotaExceededError)를 지능적으로 감지하여 데이터 유실 없이 안전하게 히스토리를 보존.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- v1.0.1 Entry -->
+        <div class="changelog-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px 18px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); opacity: 0.9;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="background: linear-gradient(135deg, #6366f1, #3b82f6); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; font-family: monospace;">v1.0.1</span>
+              <strong style="font-size: 15px; color: var(--text-main);">눈 피로 감소 멀티 테마 & UI 고도화</strong>
+            </div>
+            <span style="font-size: 12px; color: var(--text-muted); font-weight: 600;">2026.09.14</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--text-main);">
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🎨</span>
+              <div>
+                <strong>눈 피로 최소화 4색 테마 시스템 탑재</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • <strong>모던 소프트 슬레이트 (기본)</strong>: 딥 슬레이트(#11141c) & 오프화이트(#e2e8f0)로 OLED 빛 번짐(Halation) 현상 차단<br>
+                  • <strong>웜 차콜 & 앰버</strong>: 블루라이트를 배제하여 야간/암실 집중 작업에 최적화된 온화한 서재 감성<br>
+                  • <strong>딥 노르딕 틸</strong>: 심해와 울창한 숲의 청량감을 선사하는 세이지 틸 & 딥 포레스트 톤<br>
+                  • <strong>클래식 딥 블랙</strong>: 오리지널 칠흑 블랙(#07090e) & 네온 에메랄드 원본 테마
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">⚡</span>
+              <div>
+                <strong>우측 상단 원터치 테마 순환 버튼 (🎨) 및 영구 기억</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">클릭할 때마다 4가지 테마가 부드럽게 순환 변경되며, 브라우저를 닫아도 localStorage에 테마 상태가 자동 기억됩니다.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🏷️</span>
+              <div>
+                <strong>상단 공식 타이틀 바 및 버전 업데이트 내역(Changelog) 기능</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">'AI Prompt Studio and Text Transformer' 공식 명칭 상단 고정 및 v1.0.1 뱃지 클릭 시 상세 변경 내역 열람 가능.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- v1.0.0 Entry -->
+        <div class="changelog-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px 18px; opacity: 0.85;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="background: rgba(255, 255, 255, 0.15); color: var(--text-muted); font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; font-family: monospace;">v1.0.0</span>
+              <strong style="font-size: 15px; color: var(--text-main);">AI 프롬프트 스튜디오 & 텍스트 트랜스포머 공식 릴리즈</strong>
+            </div>
+            <span style="font-size: 12px; color: var(--text-muted); font-weight: 600;">2026.09.11</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.5; color: var(--text-main);">
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🚀</span>
+              <div>
+                <strong>MiniMax H3 / LTX-Video / KREA 2 영상·이미지 프롬프트 생성기 통합</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">멀티모달 참조(Ref2VA), 텍스트(T2VA), 첫 프레임(I2VA) 등 최신 차세대 비디오 모델 완벽 대응.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🌐</span>
+              <div>
+                <strong>100% 무료 초고속 실시간 웹 검색 (무검열 제미나이) 탑재</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">DuckDuckGo Instant Answer 및 위키·아카이브 실시간 연동 검색 지능 지원.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">⚙️</span>
+              <div>
+                <strong>텍스트 가공 도구 & ComfyUI QoL 워크플로우 지원</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">문자열 분할, 결합, 변환 및 프롬프트 Blueprint 복사/저장 로컬 환경 완비.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      
+      <div style="display: flex; justify-content: flex-end; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-color);">
+        <button class="btn-header" id="btnCloseChangelogBottom" style="padding: 7px 18px;">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- System Prompt Preset Manager Modal (MiniMax / LTX / KREA) -->
+  <div class="modal-backdrop" id="systemPromptPresetModal" style="display: none;">
+    <div class="modal-box large" style="max-width: 860px; max-height: 88vh; display: flex; flex-direction: column;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">⚙️</span>
+          <span class="modal-title" style="font-size: 16px; font-weight: 800;">사용자 지정 시스템 프롬프트 프리셋 관리 (작성 · 수정 · 순서 이동 · 삭제)</span>
+        </div>
+        <button class="btn-close-modal" id="btnClosePresetModal">✕</button>
+      </div>
+
+      <!-- Model Category Tabs -->
+      <div class="preset-model-tabs" id="presetModelTabs">
+        <button class="preset-model-tab-btn active" data-model="minimax">🎬 MiniMax H3 프리셋</button>
+        <button class="preset-model-tab-btn" data-model="ltx">⚡ LTX-Video 프리셋</button>
+        <button class="preset-model-tab-btn" data-model="krea">🎨 KREA 2 프리셋</button>
+      </div>
+
+      <!-- 2-Column Body -->
+      <div style="display: grid; grid-template-columns: 290px 1fr; gap: 16px; flex: 1; min-height: 380px; overflow: hidden;">
+        
+        <!-- Left: Preset List & Add Button & Order Move -->
+        <div style="border-right: 1px solid var(--border-color); padding-right: 14px; display: flex; flex-direction: column; gap: 10px; overflow: hidden;">
+          <button class="btn-action-sm primary" id="btnAddNewPreset" style="justify-content: center; padding: 9px; font-weight: 700;">+ 새 시스템 프롬프트 작성</button>
+          
+          <div style="font-size: 11px; color: var(--text-dim); display: flex; justify-content: space-between; align-items: center;">
+            <span>등록된 프리셋 목록</span>
+            <span>순서 이동 (▲/▼)</span>
+          </div>
+
+          <div id="presetItemsContainer" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 4px;">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Right: Edit Form -->
+        <div style="display: flex; flex-direction: column; gap: 12px; overflow-y: auto; padding-right: 4px;">
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 700;">프리셋 명칭</label>
+            <input type="text" class="form-input" id="editPresetName" placeholder="예: 시네마틱 헐리우드 연출, 35mm 감성 필름 등">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 700;">한줄 요약 설명</label>
+            <input type="text" class="form-input" id="editPresetDesc" placeholder="지침의 목적이나 주요 스타일 특징">
+          </div>
+
+          <div class="form-group" style="flex: 1; display: flex; flex-direction: column;">
+            <label class="form-label" style="font-weight: 700; display: flex; justify-content: space-between;">
+              <span>시스템 프롬프트 지침 본문</span>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: normal;">AI에게 프롬프트 작성 시 강제 주입할 규칙</span>
+            </label>
+            <textarea class="styled-textarea" id="editPresetContent" style="flex: 1; min-height: 200px; font-family: 'Fira Code', monospace; font-size: 11.5px; line-height: 1.6;" placeholder="당신은 전문 프롬프트 엔지니어입니다..."></textarea>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-color); margin-top: auto;">
+            <button class="btn-action-sm danger" id="btnDeletePreset" style="padding: 7px 14px; font-size: 12px;">🗑️ 이 프리셋 삭제</button>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-header" id="btnClosePresetBottom" style="padding: 7px 16px;">닫기</button>
+              <button class="btn-action-sm primary" id="btnSavePreset" style="padding: 7px 18px; font-weight: 700;">💾 프리셋 저장</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <!-- 1. Gemini API Key & Hugging Face Token Modal -->
   <div class="modal-backdrop" id="apiModal">
     <div class="modal-box">
@@ -4667,6 +5377,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn-action-sm" id="btnClearBatchQueue">목록 비우기</button>
+        <button class="btn-action-sm" id="btnStopBatch" type="button" style="display: none; color: #ef4444; border-color: #ef4444; font-weight: 700;">⏹️ 일괄 가공 중지</button>
         <button class="btn-save" id="btnStartBatch">일괄 가공 시작 🚀</button>
       </div>
     </div>
@@ -4674,25 +5385,64 @@
 
   <!-- 4. Prompt View Modal -->
   <div class="modal-backdrop" id="promptViewModal">
-    <div class="modal-box large">
-      <div class="modal-header">
-        <span class="modal-title">🪟 생성된 프롬프트 전체 보기</span>
+    <div class="modal-box large" style="max-height: 88vh; display: flex; flex-direction: column;">
+      <div class="modal-header" style="flex-shrink: 0;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="modal-title">🪟 프롬프트 및 요청 상세 보기</span>
+          <span class="history-model-tag" id="modalItemMetaBadge" style="display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px;">[MINIMAX]</span>
+        </div>
         <button class="btn-close-modal" id="btnCloseViewModal">✕</button>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 14px;">
-        <div class="form-group">
-          <label class="form-label" style="color: #10b981;">영문 마스터 프롬프트 (Master Prompt)</label>
-          <div class="result-text-area" id="modalPromptEngText" style="max-height: 240px;"></div>
-          <button class="btn-action-sm" id="btnCopyModalEng" style="align-self: flex-end; margin-top: 4px;">📋 영문 복사</button>
+
+      <div style="display: flex; flex-direction: column; gap: 14px; overflow-y: auto; padding-right: 4px; flex: 1;">
+        
+        <!-- [1] 사용자 요청 내용 영역 (User Prompt Request) -->
+        <div class="form-group" id="modalRequestSection">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <label class="form-label" style="color: #38bdf8; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 6px;">
+              <span>💬 프롬프트 생성 요청 내용 (User Request Input)</span>
+            </label>
+            <button class="btn-action-sm" id="btnCopyModalRequest">📋 요청 복사</button>
+          </div>
+          <div class="result-text-area" id="modalPromptRequestText" style="max-height: 120px; font-size: 12.5px; white-space: pre-wrap; color: #f1f5f9; background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(56, 189, 248, 0.25);"></div>
         </div>
-        <div class="form-group">
-          <label class="form-label" style="color: #cbd5e1;">한국어 번역 및 연출 해설</label>
-          <div class="korean-trans-area" id="modalPromptKorText" style="max-height: 180px;"></div>
-          <button class="btn-action-sm" id="btnCopyModalKor" style="align-self: flex-end; margin-top: 4px;">📋 번역 복사</button>
+
+        <!-- [2] 첨부되었던 이미지 영역 (Attached Images) -->
+        <div class="form-group" id="modalImagesSection" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <label class="form-label" style="color: #fbbf24; font-weight: 700; margin: 0; display: flex; align-items: center; gap: 6px;">
+              <span>🖼️ 첨부 이미지 (<span id="modalAttachedImagesCount">0</span>장)</span>
+              <span style="font-size: 11px; font-weight: 400; color: var(--text-dim);">(클릭 시 확대 보기)</span>
+            </label>
+          </div>
+          <div id="modalAttachedImagesGrid" style="display: flex; flex-wrap: wrap; gap: 10px; max-height: 160px; overflow-y: auto; padding: 6px; background: rgba(0,0,0,0.25); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);"></div>
         </div>
+
+        <!-- [3] 영문 마스터 프롬프트 -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <label class="form-label" style="color: #10b981; font-weight: 700; margin: 0;">✨ 영문 마스터 프롬프트 (Master Prompt)</label>
+            <button class="btn-action-sm" id="btnCopyModalEng">📋 영문 복사</button>
+          </div>
+          <div class="result-text-area" id="modalPromptEngText" style="max-height: 200px;"></div>
+        </div>
+
+        <!-- [4] 한국어 번역 및 연출 해설 -->
+        <div class="form-group" id="modalKorGroup">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <label class="form-label" style="color: #cbd5e1; font-weight: 700; margin: 0;">🇰🇷 한국어 번역 및 연출 해설</label>
+            <button class="btn-action-sm" id="btnCopyModalKor">📋 번역 복사</button>
+          </div>
+          <div class="korean-trans-area" id="modalPromptKorText" style="max-height: 150px;"></div>
+        </div>
+
       </div>
-      <div class="modal-footer">
-        <button class="btn-action-sm primary" id="btnCloseViewModalBtn">닫기</button>
+
+      <div class="modal-footer" style="flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; margin-top: 8px;">
+        <button class="btn-restore-apply" id="btnRestoreAndApply" type="button">
+          <span>🔄 이 설정으로 입력창에 반영 (다시 생성 준비)</span>
+        </button>
+        <button class="btn-action-sm" id="btnCloseViewModalBtn">닫기</button>
       </div>
     </div>
   </div>
@@ -4892,12 +5642,55 @@
       }
     ];
 
+    const DEFAULT_MINIMAX_PRESETS = [
+      {
+        id: 'minimax_cinematic_hollywood',
+        name: '🎬 헐리우드 시네마틱 35mm',
+        description: '35mm 아나모픽 렌즈, 얕은 심도, 볼륨메트릭 조명, 입체 사운드스케이프',
+        systemPrompt: 'You are an expert prompt engineer for MiniMax H3, generating ultra-photorealistic, high-budget Hollywood cinema shots.\nEmphasize 35mm anamorphic lens aesthetics, volumetric lighting, rich textural contrast, and realistic physical acoustics.\nStrictly format into the six standard MiniMax sections: subject_definitions, summary, retention_analysis, detailed_description, overall_soundscape, and non_diegetic_music.'
+      },
+      {
+        id: 'minimax_dynamic_action',
+        name: '⚡ 다이내믹 액션 & 퀵 컷',
+        description: '역동적인 카메라 트래킹, 고속 셔터, 파티클 이펙트, 긴박한 음향 효과',
+        systemPrompt: 'You are an expert prompt engineer for MiniMax H3 specializing in high-octane dynamic action cinema.\nFocus on whip pans, fast tracking shots, kinetic motion physics, explosive visual effects, and intense rhythmic Foley sound design.\nOutput in the standard six MiniMax sections.'
+      },
+      {
+        id: 'minimax_moody_noir',
+        name: '🌧️ 감성 느와르 & 네온 리플렉션',
+        description: '안개, 젖은 노면의 네온 반사, 고대비 명암, 멜랑콜리한 앰비언스 사운드',
+        systemPrompt: 'You are an expert prompt engineer for MiniMax H3 crafting melancholic, neon-drenched modern noir cinema.\nEmphasize chiaroscuro lighting, reflective wet asphalt, heavy atmospheric fog, soft blues and ambers, and subtle urban soundscapes.\nOutput in the standard six MiniMax sections.'
+      }
+    ];
+
+    const DEFAULT_LTX_PRESETS = [
+      {
+        id: 'ltx_dit_master',
+        name: '🎥 6대 요소 퍼펙트 DiT 마스터',
+        description: '샷, 조명, 액션, 인물, 카메라, 사운드 6대 핵심 요소를 완벽히 분할하여 24fps 렌더링 최적화',
+        systemPrompt: 'You are an expert prompt engineer for LTX-Video 2.5 DiT architecture.\nCarefully balance all 6 mandatory dimensions: Shot composition, Lighting ambiance, Subject kinetic action, Character emotional cues, 3D Camera path, and Synchronized native sound.\nProduce a cohesive, masterpiece-grade cinematic visual description.'
+      },
+      {
+        id: 'ltx_scifi_surreal',
+        name: '🌌 초현실 판타지 & SF 시퀀스',
+        description: '비현실적 물리 법칙, 생체 발광, 거대한 스케일의 카메라 줌아웃과 신비로운 사운드',
+        systemPrompt: 'You are an expert prompt engineer for LTX-Video generating hyper-detailed sci-fi and surreal fantasy visuals.\nIncorporate bioluminescent gradients, scale shifts, anti-gravity particle flows, and ethereal audio design.'
+      },
+      {
+        id: 'ltx_voice_dialogue',
+        name: '🎙️ 실감형 대사 & 음향 동기화',
+        description: '캐릭터 립싱크 대사 및 현장 앰비언스 사운드가 동기화된 인물 중심 씬 연출',
+        systemPrompt: 'You are an expert prompt engineer for LTX-Video specializing in speech and dialogue-driven character scenes.\nHighlight natural lip movement cues, facial micro-expressions, directional dialogue delivery, and ambient background Foley acoustics.'
+      }
+    ];
+
     const MINIMAX_SUBMODES = [
       { id: 'ref2va', name: 'Ref2VA', tag: '전체 참조 모드', icon: '🎬', checkpoint: 'ref2va checkpoint', desc: '인물, 의상, 사물, 동작, 비디오 및 오디오 자산을 멀티모달로 참조하여 새로운 샷 생성' },
       { id: 't2va', name: 'T2VA', tag: '텍스트 전용', icon: '⚡', checkpoint: 'fl2va checkpoint', desc: '텍스트 지시문만으로 24fps 비디오 및 네이티브 스테레오 오디오 동시 생성' },
       { id: 'i2va', name: 'I2VA', tag: '첫 프레임 기준', icon: '🖼️', checkpoint: 'fl2va checkpoint', desc: '업로드한 첫 번째 이미지를 0.00초 시작 프레임으로 삼아 물리 법칙 기반 애니메이션화' },
       { id: 'fl2va', name: 'FL2VA', tag: '첫-끝 연결/루프', icon: '🔄', checkpoint: 'fl2va checkpoint', desc: '첫 번째 프레임과 마지막 프레임 사이의 유기적 모션을 자연스럽게 연결' },
-      { id: 'l2va', name: 'L2VA', tag: '끝 프레임 착륙', icon: '🎯', checkpoint: 'fl2va checkpoint', desc: '지정된 마지막 프레임에 모션이 정확하게 안착하도록 역방향 경로 계획' }
+      { id: 'l2va', name: 'L2VA', tag: '끝 프레임 착륙', icon: '🎯', checkpoint: 'fl2va checkpoint', desc: '지정된 마지막 프레임에 모션이 정확하게 안착하도록 역방향 경로 계획' },
+      { id: 'system_prompt', name: '시스템 프롬프트', tag: '사용자 지정 프리셋', icon: '⚙️', checkpoint: 'custom-preset-engine', desc: '사용자가 등록한 고유 시스템 프롬프트 지침을 주입하여 생성' }
     ];
 
     const LTX_SUBMODES = [
@@ -4905,7 +5698,8 @@
       { id: 'ltx_t2v', name: 'LTX T2V', tag: '텍스트 전용 모션', icon: '📝', checkpoint: 'ltx-video-0.9.5 checkpoint', desc: '텍스트 서술 기반 24fps 시네마틱 프롬프트 생성' },
       { id: 'ltx_i2v', name: 'LTX I2V', tag: '첫 프레임 모션', icon: '🖼️', checkpoint: 'ltx-video-i2v checkpoint', desc: '첫 프레임 이미지를 기반으로 한 모션 역동성 프롬프트 생성' },
       { id: 'voice_audio', name: 'Voice & Audio', tag: '네이티브 대사/음향', icon: '🗣️', checkpoint: 'ltx-audio-sync checkpoint', desc: '정교한 캐릭터 음성 대사 및 배경 앰비언스 사운드 동기화' },
-      { id: 'camera_master', name: 'Camera Master', tag: '3D 카메라 연출', icon: '🎥', checkpoint: 'ltx-camera-path checkpoint', desc: '35mm 아나모픽 렌즈, 슬로우 돌리 인/아웃, 아크 궤도 등 전문 영화 촬영 감독식 카메라 경로 지정' }
+      { id: 'camera_master', name: 'Camera Master', tag: '3D 카메라 연출', icon: '🎥', checkpoint: 'ltx-camera-path checkpoint', desc: '35mm 아나모픽 렌즈, 슬로우 돌리 인/아웃, 아크 궤도 등 전문 영화 촬영 감독식 카메라 경로 지정' },
+      { id: 'system_prompt', name: '시스템 프롬프트', tag: '사용자 지정 프리셋', icon: '⚙️', checkpoint: 'custom-preset-engine', desc: '사용자가 등록한 고유 시스템 프롬프트 지침을 주입하여 생성' }
     ];
 
     const KREA_STYLES = [
@@ -4920,6 +5714,8 @@
     /* -------------------------------------------------------------
        GLOBAL STATE
        ------------------------------------------------------------- */
+    let customMinimaxPrompts = JSON.parse(localStorage.getItem('minimax_custom_system_prompts') || 'null') || DEFAULT_MINIMAX_PRESETS;
+    let customLtxPrompts = JSON.parse(localStorage.getItem('ltx_custom_system_prompts') || 'null') || DEFAULT_LTX_PRESETS;
     let customKreaPrompts = JSON.parse(localStorage.getItem('krea2_custom_system_prompts') || 'null') || DEFAULT_KREA_PRESETS;
     let customStoryboardPrompts = JSON.parse(localStorage.getItem('storyboard_custom_system_prompts') || 'null') || DEFAULT_STORYBOARD_PRESETS;
     let customTransformerPrompts = JSON.parse(localStorage.getItem('app_all_presets_v1') || 'null') || DEFAULT_TRANSFORMER_PRESETS;
@@ -4931,6 +5727,8 @@
       ltxStyle: 'ltx_2_5',
       kreaStyle: 'cinematic_photo',
       duration: 10,
+      selectedMinimaxPromptId: customMinimaxPrompts[0]?.id || 'minimax_cinematic_hollywood',
+      selectedLtxPromptId: customLtxPrompts[0]?.id || 'ltx_dit_master',
       selectedKreaPromptId: customKreaPrompts[0]?.id || 'krea_cinematic_photo',
       selectedStoryboardPromptId: customStoryboardPrompts[0]?.id || 'storyboard_default',
       storyboardCutCount: 4,
@@ -5033,6 +5831,7 @@
     const accordionBody = document.getElementById('accordionBody');
     const customSystemDirectives = document.getElementById('customSystemDirectives');
     const btnGenerate = document.getElementById('btnGenerate');
+    const btnStopGenerate = document.getElementById('btnStopGenerate');
     const generateBtnText = document.getElementById('generateBtnText');
     const outputPanelTitle = document.getElementById('outputPanelTitle');
     const emptyState = document.getElementById('emptyState');
@@ -5054,6 +5853,7 @@
     const btnToggleAdvancedTf = document.getElementById('btnToggleAdvancedTf');
     const tfAdvancedArrow = document.getElementById('tfAdvancedArrow');
     const btnExecuteTransformer = document.getElementById('btnExecuteTransformer');
+    const btnStopTransformer = document.getElementById('btnStopTransformer');
     const tfBtnIcon = document.getElementById('tfBtnIcon');
     const tfBtnText = document.getElementById('tfBtnText');
     const characterConfigCard = document.getElementById('characterConfigCard');
@@ -5119,6 +5919,14 @@
     const modalPromptKorText = document.getElementById('modalPromptKorText');
     const btnCopyModalEng = document.getElementById('btnCopyModalEng');
     const btnCopyModalKor = document.getElementById('btnCopyModalKor');
+    const modalPromptRequestText = document.getElementById('modalPromptRequestText');
+    const modalImagesSection = document.getElementById('modalImagesSection');
+    const modalAttachedImagesGrid = document.getElementById('modalAttachedImagesGrid');
+    const modalAttachedImagesCount = document.getElementById('modalAttachedImagesCount');
+    const btnRestoreAndApply = document.getElementById('btnRestoreAndApply');
+    const btnCopyModalRequest = document.getElementById('btnCopyModalRequest');
+    const modalItemMetaBadge = document.getElementById('modalItemMetaBadge');
+    let currentModalHistoryItem = null;
     const tfPresetManagerModal = document.getElementById('tfPresetManagerModal');
     const btnCloseTfPresetModal = document.getElementById('btnCloseTfPresetModal');
     const tfPresetsListContainer = document.getElementById('tfPresetsListContainer');
@@ -5137,8 +5945,263 @@
     const batchQueueTable = document.getElementById('batchQueueTable');
     const btnClearBatchQueue = document.getElementById('btnClearBatchQueue');
     const btnStartBatch = document.getElementById('btnStartBatch');
+    const btnStopBatch = document.getElementById('btnStopBatch');
     const btnOpenHistoryModal = document.getElementById('btnOpenHistoryModal');
     const toast = document.getElementById('toast');
+
+    // Global Abort Controllers for Cancellation
+    let promptAbortController = null;
+    let transformerAbortController = null;
+    let isBatchProcessing = false;
+
+    // =============================================================
+    // SYSTEM PROMPT PRESET MANAGER (CRUD & REORDER) LOGIC
+    // =============================================================
+    const systemPromptPresetModal = document.getElementById('systemPromptPresetModal');
+    const btnClosePresetModal = document.getElementById('btnClosePresetModal');
+    const btnClosePresetBottom = document.getElementById('btnClosePresetBottom');
+    const presetModelTabs = document.getElementById('presetModelTabs');
+    const presetItemsContainer = document.getElementById('presetItemsContainer');
+    const btnAddNewPreset = document.getElementById('btnAddNewPreset');
+    const editPresetName = document.getElementById('editPresetName');
+    const editPresetDesc = document.getElementById('editPresetDesc');
+    const editPresetContent = document.getElementById('editPresetContent');
+    const btnSavePreset = document.getElementById('btnSavePreset');
+    const btnDeletePreset = document.getElementById('btnDeletePreset');
+
+    let currentPresetModel = 'minimax'; // 'minimax' | 'ltx' | 'krea'
+    let activeEditPresetId = null;
+
+    function getPresetListByModel(model) {
+      if (model === 'minimax') return customMinimaxPrompts;
+      if (model === 'ltx') return customLtxPrompts;
+      if (model === 'krea') return customKreaPrompts;
+      return customMinimaxPrompts;
+    }
+
+    function savePresetListByModel(model, list) {
+      if (model === 'minimax') {
+        customMinimaxPrompts = list;
+        localStorage.setItem('minimax_custom_system_prompts', JSON.stringify(list));
+        renderMinimaxSubmodes();
+      } else if (model === 'ltx') {
+        customLtxPrompts = list;
+        localStorage.setItem('ltx_custom_system_prompts', JSON.stringify(list));
+        renderLtxSubmodes();
+      } else if (model === 'krea') {
+        customKreaPrompts = list;
+        localStorage.setItem('krea2_custom_system_prompts', JSON.stringify(list));
+        renderKreaSubmodes();
+      }
+      updatePromptInputPlaceholder();
+    }
+
+    function openPresetManagerModal(model) {
+      currentPresetModel = model || (state.activeModel === 'ltx' ? 'ltx' : state.activeModel === 'krea' ? 'krea' : 'minimax');
+      
+      // Update Model Tab Active State
+      if (presetModelTabs) {
+        presetModelTabs.querySelectorAll('.preset-model-tab-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-model') === currentPresetModel);
+        });
+      }
+
+      var list = getPresetListByModel(currentPresetModel);
+      activeEditPresetId = list[0] ? list[0].id : null;
+      renderPresetModalList();
+      loadPresetToEditForm();
+
+      if (systemPromptPresetModal) {
+        systemPromptPresetModal.style.display = 'flex';
+      }
+    }
+
+    function renderPresetModalList() {
+      if (!presetItemsContainer) return;
+      var list = getPresetListByModel(currentPresetModel);
+      
+      if (!list || list.length === 0) {
+        presetItemsContainer.innerHTML = '<div style="color:var(--text-muted); font-size:12px; padding:12px 6px;">등록된 프리셋이 없습니다.</div>';
+        return;
+      }
+
+      presetItemsContainer.innerHTML = list.map(function(p, idx) {
+        var isActive = p.id === activeEditPresetId;
+        return '<div class="preset-list-item ' + (isActive ? 'active' : '') + '" data-id="' + p.id + '">' +
+          '<div class="preset-item-info" data-id="' + p.id + '">' +
+            '<div class="preset-item-name">' + p.name + '</div>' +
+            '<div class="preset-item-desc">' + (p.description || p.systemPrompt.slice(0, 30)) + '</div>' +
+          '</div>' +
+          '<div class="preset-move-btns">' +
+            '<button class="btn-move-preset" data-action="up" data-idx="' + idx + '" title="위로 이동" ' + (idx === 0 ? 'disabled style="opacity:0.3;cursor:not-allowed;"' : '') + '>▲</button>' +
+            '<button class="btn-move-preset" data-action="down" data-idx="' + idx + '" title="아래로 이동" ' + (idx === list.length - 1 ? 'disabled style="opacity:0.3;cursor:not-allowed;"' : '') + '>▼</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      // Bind item clicks
+      presetItemsContainer.querySelectorAll('.preset-item-info').forEach(function(infoEl) {
+        infoEl.addEventListener('click', function() {
+          activeEditPresetId = this.getAttribute('data-id');
+          renderPresetModalList();
+          loadPresetToEditForm();
+        });
+      });
+
+      // Bind Up/Down buttons
+      presetItemsContainer.querySelectorAll('.btn-move-preset').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var action = this.getAttribute('data-action');
+          var idx = parseInt(this.getAttribute('data-idx'), 10);
+          var currentList = getPresetListByModel(currentPresetModel);
+          if (action === 'up' && idx > 0) {
+            var temp = currentList[idx];
+            currentList[idx] = currentList[idx - 1];
+            currentList[idx - 1] = temp;
+            savePresetListByModel(currentPresetModel, currentList);
+            renderPresetModalList();
+          } else if (action === 'down' && idx < currentList.length - 1) {
+            var temp = currentList[idx];
+            currentList[idx] = currentList[idx + 1];
+            currentList[idx + 1] = temp;
+            savePresetListByModel(currentPresetModel, currentList);
+            renderPresetModalList();
+          }
+        });
+      });
+    }
+
+    function loadPresetToEditForm() {
+      var list = getPresetListByModel(currentPresetModel);
+      var cur = list.find(function(p) { return p.id === activeEditPresetId; });
+      if (cur) {
+        if (editPresetName) editPresetName.value = cur.name || '';
+        if (editPresetDesc) editPresetDesc.value = cur.description || '';
+        if (editPresetContent) editPresetContent.value = cur.systemPrompt || '';
+      } else {
+        if (editPresetName) editPresetName.value = '';
+        if (editPresetDesc) editPresetDesc.value = '';
+        if (editPresetContent) editPresetContent.value = '';
+      }
+    }
+
+    // Modal Events Binding
+    if (presetModelTabs) {
+      presetModelTabs.querySelectorAll('.preset-model-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          currentPresetModel = this.getAttribute('data-model');
+          presetModelTabs.querySelectorAll('.preset-model-tab-btn').forEach(function(b) {
+            b.classList.toggle('active', b === btn);
+          });
+          var list = getPresetListByModel(currentPresetModel);
+          activeEditPresetId = list[0] ? list[0].id : null;
+          renderPresetModalList();
+          loadPresetToEditForm();
+        });
+      });
+    }
+
+    if (btnAddNewPreset) {
+      btnAddNewPreset.addEventListener('click', function() {
+        activeEditPresetId = null;
+        if (editPresetName) {
+          editPresetName.value = '';
+          editPresetName.focus();
+        }
+        if (editPresetDesc) editPresetDesc.value = '';
+        if (editPresetContent) editPresetContent.value = '';
+        renderPresetModalList();
+      });
+    }
+
+    if (btnSavePreset) {
+      btnSavePreset.addEventListener('click', function() {
+        var name = editPresetName ? editPresetName.value.trim() : '';
+        var desc = editPresetDesc ? editPresetDesc.value.trim() : '';
+        var content = editPresetContent ? editPresetContent.value.trim() : '';
+
+        if (!name) {
+          showToast('⚠️ 프리셋 명칭을 입력해주세요.');
+          if (editPresetName) editPresetName.focus();
+          return;
+        }
+        if (!content) {
+          showToast('⚠️ 시스템 프롬프트 지침 본문을 입력해주세요.');
+          if (editPresetContent) editPresetContent.focus();
+          return;
+        }
+
+        var list = getPresetListByModel(currentPresetModel);
+
+        if (activeEditPresetId) {
+          // 수정 (Update)
+          var target = list.find(function(p) { return p.id === activeEditPresetId; });
+          if (target) {
+            target.name = name;
+            target.description = desc;
+            target.systemPrompt = content;
+          }
+          savePresetListByModel(currentPresetModel, list);
+          showToast('✨ [' + name + '] 프리셋이 수정되었습니다.');
+        } else {
+          // 신규 작성 (Add)
+          var newId = 'preset_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4);
+          var newPreset = {
+            id: newId,
+            name: name,
+            description: desc,
+            systemPrompt: content
+          };
+          list.unshift(newPreset);
+          activeEditPresetId = newId;
+          savePresetListByModel(currentPresetModel, list);
+          showToast('🎉 새 프리셋 [' + name + ']이 추가되었습니다.');
+        }
+
+        renderPresetModalList();
+      });
+    }
+
+    if (btnDeletePreset) {
+      btnDeletePreset.addEventListener('click', function() {
+        var list = getPresetListByModel(currentPresetModel);
+        if (list.length <= 1) {
+          showToast('⚠️ 최소 1개의 프리셋은 유지되어야 합니다.');
+          return;
+        }
+        var cur = list.find(function(p) { return p.id === activeEditPresetId; });
+        if (!cur) return;
+        if (!confirm('정말로 프리셋 [' + cur.name + ']을(를) 삭제하시겠습니까?')) {
+          return;
+        }
+
+        var filtered = list.filter(function(p) { return p.id !== activeEditPresetId; });
+        activeEditPresetId = filtered[0] ? filtered[0].id : null;
+        savePresetListByModel(currentPresetModel, filtered);
+        renderPresetModalList();
+        loadPresetToEditForm();
+        showToast('🗑️ 프리셋이 삭제되었습니다.');
+      });
+    }
+
+    if (btnClosePresetModal && systemPromptPresetModal) {
+      btnClosePresetModal.addEventListener('click', function() {
+        systemPromptPresetModal.style.display = 'none';
+      });
+    }
+    if (btnClosePresetBottom && systemPromptPresetModal) {
+      btnClosePresetBottom.addEventListener('click', function() {
+        systemPromptPresetModal.style.display = 'none';
+      });
+    }
+    if (systemPromptPresetModal) {
+      systemPromptPresetModal.addEventListener('click', function(e) {
+        if (e.target === systemPromptPresetModal) {
+          systemPromptPresetModal.style.display = 'none';
+        }
+      });
+    }
 
     /* -------------------------------------------------------------
        INITIALIZATION & NOTIFICATION CENTER
@@ -5208,7 +6271,87 @@
       notificationList.innerHTML = html;
     }
 
+    // ==========================================
+    // Multi-Theme Eye Comfort System Logic
+    // ==========================================
+    const THEMES = [
+      { id: 'slate', name: '모던 소프트 슬레이트', shortName: '슬레이트', icon: '🎨', desc: '눈 피로 최소화 · 딥 슬레이트 & 인디고' },
+      { id: 'amber', name: '웜 차콜 & 앰버', shortName: '웜 앰버', icon: '☕', desc: '블루라이트 차단 · 따뜻한 서재 감성' },
+      { id: 'teal', name: '딥 노르딕 틸', shortName: '노르딕 틸', icon: '🌲', desc: '자연의 청량감 · 딥 포레스트 & 세이지 틸' },
+      { id: 'classic', name: '클래식 딥 블랙', shortName: '클래식', icon: '🌌', desc: '최초 시안 · 칠흑 딥 블랙 & 네온' }
+    ];
+
+    function applyTheme(themeId, showFeedback) {
+      if (!THEMES.some(t => t.id === themeId)) {
+        themeId = 'slate';
+      }
+      document.body.classList.remove('theme-slate', 'theme-amber', 'theme-teal', 'theme-classic');
+      document.body.classList.add('theme-' + themeId);
+
+      const theme = THEMES.find(t => t.id === themeId) || THEMES[0];
+      const nameLabel = document.getElementById('themeNameLabel');
+      const iconEl = document.getElementById('themeIcon');
+      const btnToggle = document.getElementById('btnThemeToggle');
+
+      if (nameLabel) nameLabel.textContent = theme.shortName;
+      if (iconEl) iconEl.textContent = theme.icon;
+      if (btnToggle) {
+        btnToggle.title = `테마 전환 (현재: ${theme.name}) - 클릭 시 다음 테마로 전환`;
+      }
+
+      localStorage.setItem('prompt_studio_theme', themeId);
+
+      if (showFeedback && typeof showToast === 'function') {
+        showToast(`${theme.icon} 테마 전환: ${theme.name}`, theme.desc);
+      }
+    }
+
+    function cycleTheme() {
+      const currentTheme = localStorage.getItem('prompt_studio_theme') || 'slate';
+      let idx = THEMES.findIndex(t => t.id === currentTheme);
+      if (idx === -1) idx = 0;
+      const nextIdx = (idx + 1) % THEMES.length;
+      applyTheme(THEMES[nextIdx].id, true);
+    }
+
     function init() {
+      // 1. Multi-Theme Initialization (Default: Slate)
+      const savedTheme = localStorage.getItem('prompt_studio_theme') || 'slate';
+      applyTheme(savedTheme, false);
+      const btnThemeToggle = document.getElementById('btnThemeToggle');
+      if (btnThemeToggle) {
+        btnThemeToggle.addEventListener('click', cycleTheme);
+      }
+
+      // 2. Changelog / Release Notes Modal Binding
+      const changelogModal = document.getElementById('changelogModal');
+      const btnVersionChangelog = document.getElementById('btnVersionChangelog');
+      const btnCloseChangelogModal = document.getElementById('btnCloseChangelogModal');
+      const btnCloseChangelogBottom = document.getElementById('btnCloseChangelogBottom');
+
+      if (btnVersionChangelog && changelogModal) {
+        btnVersionChangelog.addEventListener('click', function() {
+          changelogModal.style.display = 'flex';
+        });
+      }
+      if (btnCloseChangelogModal && changelogModal) {
+        btnCloseChangelogModal.addEventListener('click', function() {
+          changelogModal.style.display = 'none';
+        });
+      }
+      if (btnCloseChangelogBottom && changelogModal) {
+        btnCloseChangelogBottom.addEventListener('click', function() {
+          changelogModal.style.display = 'none';
+        });
+      }
+      if (changelogModal) {
+        changelogModal.addEventListener('click', function(e) {
+          if (e.target === changelogModal) {
+            changelogModal.style.display = 'none';
+          }
+        });
+      }
+
       updateApiStatus();
       updateNotificationBadge();
       renderNotificationList();
@@ -5542,13 +6685,14 @@
       } else if (state.kreaSubMode === 'system_prompt') {
         var activePrompt = customKreaPrompts.find(function(p) { return p.id === state.selectedKreaPromptId; }) || customKreaPrompts[0];
         submodeControlsContainer.innerHTML = [
-          '<div class="dropdown-row">',
-            '<span class="dropdown-label">목록 선택:</span>',
-            '<select class="styled-select" id="kreaPresetSelect">',
+          '<div class="dropdown-row" style="display: flex; gap: 8px; align-items: center;">',
+            '<span class="dropdown-label">지침 선택:</span>',
+            '<select class="styled-select" id="kreaPresetSelect" style="flex: 1;">',
               customKreaPrompts.map(function(p) {
                 return '<option value="' + p.id + '" ' + (p.id === activePrompt.id ? 'selected' : '') + '>' + p.name + '</option>';
               }).join(''),
             '</select>',
+            '<button class="btn-action-sm primary" id="btnManageKreaPresets" style="flex-shrink: 0; padding: 7px 12px; font-size: 11.5px;">⚙️ 프리셋 관리</button>',
           '</div>',
           '<div class="applied-directive-card" style="margin-top: 8px;">',
             '<div class="applied-header">',
@@ -5562,6 +6706,9 @@
           state.selectedKreaPromptId = e.target.value;
           renderKreaSubmodes();
           updatePromptInputPlaceholder();
+        });
+        document.getElementById('btnManageKreaPresets').addEventListener('click', function() {
+          openPresetManagerModal('krea');
         });
 
       } else if (state.kreaSubMode === 'storyboard') {
@@ -5595,7 +6742,7 @@
     }
 
     function renderMinimaxSubmodes() {
-      submodeGrid.className = 'submode-grid cols-5';
+      submodeGrid.className = 'submode-grid cols-6';
       submodeGrid.innerHTML = MINIMAX_SUBMODES.map(function(sub) {
         return '<div class="submode-card minimax-card ' + (state.minimaxStyle === sub.id ? 'active' : '') + '" data-minimax-style="' + sub.id + '">' +
           '<div class="submode-title">' + sub.icon + ' ' + sub.name + '</div>' +
@@ -5613,15 +6760,46 @@
 
       var activeSub = MINIMAX_SUBMODES.find(function(m) { return m.id === state.minimaxStyle; }) || MINIMAX_SUBMODES[0];
       engineBadge.textContent = activeSub.checkpoint;
-      submodeControlsContainer.innerHTML = [
-        '<div class="info-callout">',
-          '<span>⚡ <strong>' + activeSub.name + ' (' + activeSub.tag + ')</strong>: ' + activeSub.desc + '</span>',
-        '</div>'
-      ].join('');
+
+      if (state.minimaxStyle === 'system_prompt') {
+        var activePrompt = customMinimaxPrompts.find(function(p) { return p.id === state.selectedMinimaxPromptId; }) || customMinimaxPrompts[0];
+        submodeControlsContainer.innerHTML = [
+          '<div class="dropdown-row" style="display: flex; gap: 8px; align-items: center;">',
+            '<span class="dropdown-label">지침 선택:</span>',
+            '<select class="styled-select" id="minimaxPresetSelect" style="flex: 1;">',
+              customMinimaxPrompts.map(function(p) {
+                return '<option value="' + p.id + '" ' + (p.id === activePrompt.id ? 'selected' : '') + '>' + p.name + '</option>';
+              }).join(''),
+            '</select>',
+            '<button class="btn-action-sm primary" id="btnManageMinimaxPresets" style="flex-shrink: 0; padding: 7px 12px; font-size: 11.5px;">⚙️ 프리셋 관리</button>',
+          '</div>',
+          '<div class="applied-directive-card" style="margin-top: 8px;">',
+            '<div class="applied-header">',
+              '<span>📌 적용 지침: ' + activePrompt.name + '</span>',
+              '<span class="applied-tag">MiniMax Preset</span>',
+            '</div>',
+            '<div class="applied-content">' + (activePrompt.description || activePrompt.systemPrompt) + '</div>',
+          '</div>'
+        ].join('');
+        document.getElementById('minimaxPresetSelect').addEventListener('change', function(e) {
+          state.selectedMinimaxPromptId = e.target.value;
+          renderMinimaxSubmodes();
+          updatePromptInputPlaceholder();
+        });
+        document.getElementById('btnManageMinimaxPresets').addEventListener('click', function() {
+          openPresetManagerModal('minimax');
+        });
+      } else {
+        submodeControlsContainer.innerHTML = [
+          '<div class="info-callout">',
+            '<span>⚡ <strong>' + activeSub.name + ' (' + activeSub.tag + ')</strong>: ' + activeSub.desc + '</span>',
+          '</div>'
+        ].join('');
+      }
     }
 
     function renderLtxSubmodes() {
-      submodeGrid.className = 'submode-grid cols-5';
+      submodeGrid.className = 'submode-grid cols-6';
       submodeGrid.innerHTML = LTX_SUBMODES.map(function(sub) {
         return '<div class="submode-card ltx-card ' + (state.ltxStyle === sub.id ? 'active' : '') + '" data-ltx-style="' + sub.id + '">' +
           '<div class="submode-title">' + sub.icon + ' ' + sub.name + '</div>' +
@@ -5639,11 +6817,42 @@
 
       var activeSub = LTX_SUBMODES.find(function(m) { return m.id === state.ltxStyle; }) || LTX_SUBMODES[0];
       engineBadge.textContent = activeSub.checkpoint;
-      submodeControlsContainer.innerHTML = [
-        '<div class="info-callout">',
-          '<span>⚡ <strong>' + activeSub.name + ' (' + activeSub.tag + ')</strong>: ' + activeSub.desc + '</span>',
-        '</div>'
-      ].join('');
+
+      if (state.ltxStyle === 'system_prompt') {
+        var activePrompt = customLtxPrompts.find(function(p) { return p.id === state.selectedLtxPromptId; }) || customLtxPrompts[0];
+        submodeControlsContainer.innerHTML = [
+          '<div class="dropdown-row" style="display: flex; gap: 8px; align-items: center;">',
+            '<span class="dropdown-label">지침 선택:</span>',
+            '<select class="styled-select" id="ltxPresetSelect" style="flex: 1;">',
+              customLtxPrompts.map(function(p) {
+                return '<option value="' + p.id + '" ' + (p.id === activePrompt.id ? 'selected' : '') + '>' + p.name + '</option>';
+              }).join(''),
+            '</select>',
+            '<button class="btn-action-sm primary" id="btnManageLtxPresets" style="flex-shrink: 0; padding: 7px 12px; font-size: 11.5px;">⚙️ 프리셋 관리</button>',
+          '</div>',
+          '<div class="applied-directive-card" style="margin-top: 8px;">',
+            '<div class="applied-header">',
+              '<span>📌 적용 지침: ' + activePrompt.name + '</span>',
+              '<span class="applied-tag">LTX Preset</span>',
+            '</div>',
+            '<div class="applied-content">' + (activePrompt.description || activePrompt.systemPrompt) + '</div>',
+          '</div>'
+        ].join('');
+        document.getElementById('ltxPresetSelect').addEventListener('change', function(e) {
+          state.selectedLtxPromptId = e.target.value;
+          renderLtxSubmodes();
+          updatePromptInputPlaceholder();
+        });
+        document.getElementById('btnManageLtxPresets').addEventListener('click', function() {
+          openPresetManagerModal('ltx');
+        });
+      } else {
+        submodeControlsContainer.innerHTML = [
+          '<div class="info-callout">',
+            '<span>⚡ <strong>' + activeSub.name + ' (' + activeSub.tag + ')</strong>: ' + activeSub.desc + '</span>',
+          '</div>'
+        ].join('');
+      }
     }
 
     function updatePromptInputPlaceholder() {
@@ -5663,13 +6872,27 @@
           userPromptInput.placeholder = '스토리보드로 제작할 전체 시나리오나 중심 사건을 입력하세요.\n예: 비밀 요원이 야간 빌딩에 침투하여 문서를 탈취하고 옥상 헬기로 탈출하는 ' + state.storyboardCutCount + '단계 액션 씬';
         }
       } else if (state.activeModel === 'minimax') {
-        promptInputLabel.textContent = '✍️ MiniMax H3 요청 (' + state.minimaxStyle.toUpperCase() + ' • ' + state.duration + '초)';
-        generateBtnText.textContent = 'MiniMax H3 (' + state.minimaxStyle.toUpperCase() + ') 생성 🚀';
-        userPromptInput.placeholder = 'MiniMax H3 비디오로 구현할 장면과 카메라 무빙을 설명하세요.\n예: 고속 드론이 폭포수를 가로지르며 하강하여 수면에 물보라를 일으키고 슬로우 모션으로 전환';
+        if (state.minimaxStyle === 'system_prompt') {
+          var activePrompt = customMinimaxPrompts.find(function(p) { return p.id === state.selectedMinimaxPromptId; }) || customMinimaxPrompts[0];
+          promptInputLabel.textContent = '✍️ MiniMax H3 요청 (' + activePrompt.name + ' • ' + state.duration + '초)';
+          generateBtnText.textContent = 'MiniMax H3 (' + activePrompt.name + ') 생성 🚀';
+          userPromptInput.placeholder = '선택된 시스템 프롬프트 [' + activePrompt.name + ']에 전달할 씬 설명이나 요구사항을 입력하세요.\n예: 고속 드론이 폭포수를 가로지르며 하강하여 수면에 물보라를 일으키고 슬로우 모션으로 전환';
+        } else {
+          promptInputLabel.textContent = '✍️ MiniMax H3 요청 (' + state.minimaxStyle.toUpperCase() + ' • ' + state.duration + '초)';
+          generateBtnText.textContent = 'MiniMax H3 (' + state.minimaxStyle.toUpperCase() + ') 생성 🚀';
+          userPromptInput.placeholder = 'MiniMax H3 비디오로 구현할 장면과 카메라 무빙을 설명하세요.\n예: 고속 드론이 폭포수를 가로지르며 하강하여 수면에 물보라를 일으키고 슬로우 모션으로 전환';
+        }
       } else if (state.activeModel === 'ltx') {
-        promptInputLabel.textContent = '✍️ LTX-Video 요청 (' + state.ltxStyle.toUpperCase() + ' • ' + state.duration + '초)';
-        generateBtnText.textContent = 'LTX-Video (' + state.ltxStyle.toUpperCase() + ') 생성 🚀';
-        userPromptInput.placeholder = 'LTX-Video 2.5로 제작할 시네마틱 영화 장면을 입력하세요.\n예: 1970년대 아날로그 무드의 심야 기차 내부, 창밖으로 번개가 번쩍이며 승객의 얼굴에 그림자가 드리움';
+        if (state.ltxStyle === 'system_prompt') {
+          var activePrompt = customLtxPrompts.find(function(p) { return p.id === state.selectedLtxPromptId; }) || customLtxPrompts[0];
+          promptInputLabel.textContent = '✍️ LTX-Video 요청 (' + activePrompt.name + ' • ' + state.duration + '초)';
+          generateBtnText.textContent = 'LTX-Video (' + activePrompt.name + ') 생성 🚀';
+          userPromptInput.placeholder = '선택된 시스템 프롬프트 [' + activePrompt.name + ']에 전달할 시네마틱 장면과 액션을 입력하세요.\n예: 1970년대 아날로그 무드의 심야 기차 내부, 창밖으로 번개가 번쩍이며 승객의 얼굴에 그림자가 드리움';
+        } else {
+          promptInputLabel.textContent = '✍️ LTX-Video 요청 (' + state.ltxStyle.toUpperCase() + ' • ' + state.duration + '초)';
+          generateBtnText.textContent = 'LTX-Video (' + state.ltxStyle.toUpperCase() + ') 생성 🚀';
+          userPromptInput.placeholder = 'LTX-Video 2.5로 제작할 시네마틱 영화 장면을 입력하세요.\n예: 1970년대 아날로그 무드의 심야 기차 내부, 창밖으로 번개가 번쩍이며 승객의 얼굴에 그림자가 드리움';
+        }
       }
     }
 
@@ -6064,6 +7287,22 @@
       // 10. Execute Transformer
       btnExecuteTransformer.addEventListener('click', executeTextTransformation);
 
+      if (btnStopTransformer) {
+        btnStopTransformer.addEventListener('click', function() {
+          if (transformerAbortController) {
+            transformerAbortController.abort();
+          }
+          if (tfTimerInterval) {
+            clearInterval(tfTimerInterval);
+            tfTimerInterval = null;
+          }
+          btnStopTransformer.style.display = 'none';
+          setTransformerLoading(false);
+          tfChunkProgressBar.style.display = 'none';
+          showToast('🛑 텍스트 가공을 즉시 중지했습니다.');
+        });
+      }
+
       // Keyboard Shortcut Ctrl+Enter
       window.addEventListener('keydown', function(e) {
         if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
@@ -6183,6 +7422,9 @@
 
       var combinedInstruction = userInst ? (finalSystemPrompt + "\n\n【추가 세부 지시사항】\n" + userInst) : finalSystemPrompt;
 
+      transformerAbortController = new AbortController();
+      if (btnStopTransformer) btnStopTransformer.style.display = 'inline-flex';
+
       var startTime = Date.now();
       state.tfLastLatency = null;
       setTransformerLoading(true, startTime);
@@ -6204,6 +7446,10 @@
           var accumulated = '';
 
           for (var j = 0; j < totalChunks; j++) {
+            if (transformerAbortController && transformerAbortController.signal.aborted) {
+              throw new DOMException('Aborted', 'AbortError');
+            }
+
             var percent = Math.round(((j + 1) / totalChunks) * 100);
             tfChunkProgressText.textContent = "청크 " + (j + 1) + "/" + totalChunks + " 가공 중... (" + Math.min((j + 1) * chunkSize, totalLines) + "/" + totalLines + "줄)";
             tfChunkProgressPercent.textContent = percent + "%";
@@ -6211,9 +7457,9 @@
 
             var chunkResult = '';
             if (state.tfEngineMode === 'local') {
-              chunkResult = await callLocalLLM(chunks[j], combinedInstruction);
+              chunkResult = await callLocalLLM(chunks[j], combinedInstruction, transformerAbortController.signal);
             } else {
-              chunkResult = await callGeminiAPI(chunks[j], combinedInstruction);
+              chunkResult = await callGeminiAPI(chunks[j], combinedInstruction, transformerAbortController.signal);
             }
 
             accumulated += (accumulated ? '\n' : '') + chunkResult.trim();
@@ -6231,9 +7477,9 @@
           tfChunkProgressBar.style.display = 'none';
           var result = '';
           if (state.tfEngineMode === 'local') {
-            result = await callLocalLLM(input, combinedInstruction);
+            result = await callLocalLLM(input, combinedInstruction, transformerAbortController.signal);
           } else {
-            result = await callGeminiAPI(input, combinedInstruction);
+            result = await callGeminiAPI(input, combinedInstruction, transformerAbortController.signal);
           }
           tfOutputArea.value = result.trim();
           
@@ -6252,15 +7498,21 @@
         });
 
       } catch (err) {
-        showToast("가공 오류: " + err.message, err.message);
-        console.error('Transformer error:', err);
+        if (err.name === 'AbortError' || (transformerAbortController && transformerAbortController.signal.aborted)) {
+          showToast("🛑 텍스트 가공이 사용자에 의해 중지되었습니다.");
+        } else {
+          showToast("가공 오류: " + err.message, err.message);
+          console.error('Transformer error:', err);
+        }
       } finally {
         if (tfTimerInterval) {
           clearInterval(tfTimerInterval);
           tfTimerInterval = null;
         }
+        if (btnStopTransformer) btnStopTransformer.style.display = 'none';
         setTransformerLoading(false);
         tfChunkProgressBar.style.display = 'none';
+        transformerAbortController = null;
       }
     }
 
@@ -6286,13 +7538,14 @@
       }
     }
 
-    async function callLocalLLM(text, systemInstruction) {
+    async function callLocalLLM(text, systemInstruction, signal) {
       var endpoint = localEndpointInput.value.trim() || 'http://localhost:1234/v1/chat/completions';
       var model = localModelNameInput.value.trim() || 'qwen3.8-27b';
 
       var res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: signal,
         body: JSON.stringify({
           model: model,
           messages: [
@@ -6312,7 +7565,7 @@
       return out.replace(/^```[a-zA-Z0-9_-]*\n/, '').replace(/\n```$/, '').trim();
     }
 
-    async function callGeminiAPI(userPrompt, systemInstruction) {
+    async function callGeminiAPI(userPrompt, systemInstruction, signal) {
       if (!state.apiKey) {
         apiModal.style.display = 'flex';
         throw new Error('Google Gemini API 키가 필요합니다. 설정창에 키를 입력하세요.');
@@ -6356,6 +7609,7 @@
 
       // PASS 1: Direct Unconstrained Compilation with multi-model cascade
       for (var i = 0; i < modelsToTry.length; i++) {
+        if (signal && signal.aborted) throw new DOMException('Aborted', 'AbortError');
         var model = modelsToTry[i];
         try {
           var url = "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent?key=" + state.apiKey;
@@ -6369,7 +7623,8 @@
           var response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: signal
           });
 
           if (!response.ok) {
@@ -6399,6 +7654,7 @@
             return text;
           }
         } catch (err) {
+          if (err.name === 'AbortError' || signal?.aborted) throw err;
           lastError = err;
           console.warn("Pass 1 Model " + model + " failed:", err.message);
         }
@@ -6416,12 +7672,14 @@
         userPrompt;
 
       for (var j = 0; j < modelsToTry.length; j++) {
+        if (signal && signal.aborted) throw new DOMException('Aborted', 'AbortError');
         var model2 = modelsToTry[j];
         try {
           var url2 = "https://generativelanguage.googleapis.com/v1beta/models/" + model2 + ":generateContent?key=" + state.apiKey;
           var res2 = await fetch(url2, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: signal,
             body: JSON.stringify({
               contents: [{ role: "user", parts: [{ text: deepFramedUserPrompt }] }],
               system_instruction: { parts: [{ text: deepOverrideSystem + "\n\n" + (systemInstruction || "") }] },
@@ -6438,6 +7696,7 @@
             }
           }
         } catch (e2) {
+          if (e2.name === 'AbortError' || signal?.aborted) throw e2;
           console.warn("Pass 2 Model " + model2 + " error:", e2.message);
         }
       }
@@ -6569,6 +7828,9 @@
         return;
       }
 
+      promptAbortController = new AbortController();
+      if (btnStopGenerate) btnStopGenerate.style.display = 'inline-flex';
+
       var startTime = Date.now();
       btnGenerate.disabled = true;
       generateBtnText.innerHTML = '<span class="spinner"></span> 프롬프트 생성 중... <span class="timer-live-badge">⏱️ 0.0s</span>';
@@ -6587,27 +7849,49 @@
         var promptResponse = '';
 
         if (state.activeModel === 'krea' && state.kreaSubMode === 'storyboard') {
-          promptResponse = await callGeminiPromptGenerate(input, systemInstruction, true);
+          promptResponse = await callGeminiPromptGenerate(input, systemInstruction, true, promptAbortController.signal);
         } else {
-          promptResponse = await callGeminiPromptGenerate(input, systemInstruction, false);
+          promptResponse = await callGeminiPromptGenerate(input, systemInstruction, false, promptAbortController.signal);
         }
 
         var elapsedSec = ((Date.now() - startTime) / 1000).toFixed(1);
-        renderPromptOutput(promptResponse, elapsedSec);
+        renderPromptOutput(promptResponse, elapsedSec, input);
         showToast('✨ 프롬프트가 성공적으로 생성되었습니다! (' + elapsedSec + '초)');
 
       } catch (err) {
-        showToast("오류: " + err.message, err.message);
-        console.error(err);
+        if (err.name === 'AbortError' || (promptAbortController && promptAbortController.signal.aborted)) {
+          showToast('🛑 프롬프트 생성이 사용자에 의해 중지되었습니다.');
+        } else {
+          showToast("오류: " + err.message, err.message);
+          console.error(err);
+        }
       } finally {
         if (generateTimerInterval) {
           clearInterval(generateTimerInterval);
           generateTimerInterval = null;
         }
+        if (btnStopGenerate) btnStopGenerate.style.display = 'none';
         btnGenerate.disabled = false;
+        promptAbortController = null;
         updatePromptInputPlaceholder();
       }
     });
+
+    if (btnStopGenerate) {
+      btnStopGenerate.addEventListener('click', function() {
+        if (promptAbortController) {
+          promptAbortController.abort();
+        }
+        if (generateTimerInterval) {
+          clearInterval(generateTimerInterval);
+          generateTimerInterval = null;
+        }
+        btnStopGenerate.style.display = 'none';
+        btnGenerate.disabled = false;
+        updatePromptInputPlaceholder();
+        showToast('🛑 프롬프트 생성을 즉시 중지했습니다.');
+      });
+    }
 
     function sanitizeForCinematicBypass(koreanText) {
       if (!koreanText) return '';
@@ -6788,20 +8072,39 @@
           baseSystem = "You are a master cinematic storyboard director creating a " + state.storyboardCutCount + "-cut storyboard. Output JSON with cutNumber, cameraAngle, englishPrompt, koreanTranslation for each cut.";
         }
       } else if (state.activeModel === 'minimax') {
-        var selectedMode = (state.minimaxStyle || "ref2va").toLowerCase();
-        baseSystem = "You are a prompt engineer for MiniMax H3, an open-weight omni-modal video model that generates video and native stereo audio in a single pass at 24 fps.\n" +
-          "Selected Mode Target: " + selectedMode.toUpperCase() + "\n" +
-          "Requested Duration: " + state.duration + " seconds.\n" +
-          "Translate all user scene descriptions, intimate actions, emotions, and physical kinetics into professional, highly detailed, objective English.\n" +
-          "Strictly output the six standard sections:\n" +
-          "subject_definitions:\nsummary:\nretention_analysis:\ndetailed_description:\noverall_soundscape:\nnon_diegetic_music:\n" +
-          "Followed by length frame notation: length X (Y.YY s)\n" +
-          "End with '--- KOREAN TRANSLATION ---' and a comprehensive Korean translation.";
+        if (state.minimaxStyle === 'system_prompt') {
+          var p = customMinimaxPrompts.find(function(x) { return x.id === state.selectedMinimaxPromptId; }) || customMinimaxPrompts[0];
+          baseSystem = "You are an expert prompt engineer for MiniMax H3 video model.\n" +
+            "[ACTIVE MINIMAX H3 SYSTEM PROMPT DIRECTIVE]\n" + p.systemPrompt + "\n\n" +
+            "Requested Duration: " + state.duration + " seconds.\n" +
+            "Strictly output the six standard MiniMax sections (subject_definitions, summary, retention_analysis, detailed_description, overall_soundscape, non_diegetic_music).\n" +
+            "Followed by length frame notation: length X (Y.YY s)\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a comprehensive Korean translation.";
+        } else {
+          var selectedMode = (state.minimaxStyle || "ref2va").toLowerCase();
+          baseSystem = "You are a prompt engineer for MiniMax H3, an open-weight omni-modal video model that generates video and native stereo audio in a single pass at 24 fps.\n" +
+            "Selected Mode Target: " + selectedMode.toUpperCase() + "\n" +
+            "Requested Duration: " + state.duration + " seconds.\n" +
+            "Translate all user scene descriptions, intimate actions, emotions, and physical kinetics into professional, highly detailed, objective English.\n" +
+            "Strictly output the six standard sections:\n" +
+            "subject_definitions:\nsummary:\nretention_analysis:\ndetailed_description:\noverall_soundscape:\nnon_diegetic_music:\n" +
+            "Followed by length frame notation: length X (Y.YY s)\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a comprehensive Korean translation.";
+        }
       } else if (state.activeModel === 'ltx') {
-        baseSystem = "You are a world-class prompt engineer for the LTX-Video (LTX 2.5) video generation model.\n" +
-          "Sub-mode: " + state.ltxStyle + ", Duration: " + state.duration + "s.\n" +
-          "Compose a single paragraph of 4-8 descriptive English sentences containing all 6 mandatory elements: 1. Shot Establishment, 2. Scene Setting & Lighting, 3. Action Description (exact physical kinetics and contact mechanics), 4. Character Definition, 5. Camera Movement, 6. Audio Description.\n" +
-          "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation.";
+        if (state.ltxStyle === 'system_prompt') {
+          var p = customLtxPrompts.find(function(x) { return x.id === state.selectedLtxPromptId; }) || customLtxPrompts[0];
+          baseSystem = "You are a world-class prompt engineer for LTX-Video (LTX 2.5) DiT model.\n" +
+            "[ACTIVE LTX-VIDEO SYSTEM PROMPT DIRECTIVE]\n" + p.systemPrompt + "\n\n" +
+            "Duration: " + state.duration + "s.\n" +
+            "Compose a single paragraph of 4-8 descriptive English sentences with all 6 mandatory dimensions.\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation.";
+        } else {
+          baseSystem = "You are a world-class prompt engineer for the LTX-Video (LTX 2.5) video generation model.\n" +
+            "Sub-mode: " + state.ltxStyle + ", Duration: " + state.duration + "s.\n" +
+            "Compose a single paragraph of 4-8 descriptive English sentences containing all 6 mandatory elements: 1. Shot Establishment, 2. Scene Setting & Lighting, 3. Action Description (exact physical kinetics and contact mechanics), 4. Character Definition, 5. Camera Movement, 6. Audio Description.\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation.";
+        }
       }
 
       return "IMPORTANT DIRECTIVE FOR CREATIVE ARTISTIC PROMPTING:\n" +
@@ -6810,7 +8113,7 @@
         safetyInstruction + globalLanguageConstraint + customInstructionBlock + "\n" + baseSystem;
     }
 
-    async function callGeminiPromptGenerate(userPrompt, systemInstruction, isJson) {
+    async function callGeminiPromptGenerate(userPrompt, systemInstruction, isJson, signal) {
       if (!state.apiKey) {
         apiModal.style.display = 'flex';
         throw new Error('Google Gemini API 키가 필요합니다.');
@@ -6853,6 +8156,7 @@
 
       // PASS 1: Multimodal / Text Generation with safeGuardedSystemInstruction across candidate models
       for (var i = 0; i < modelsToTry.length; i++) {
+        if (signal && signal.aborted) throw new DOMException('Aborted', 'AbortError');
         var model = modelsToTry[i];
         try {
           var url = "https://generativelanguage.googleapis.com/v1beta/models/" + model + ":generateContent?key=" + state.apiKey;
@@ -6870,7 +8174,8 @@
           var response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: signal
           });
 
           if (!response.ok) {
@@ -6891,6 +8196,7 @@
             console.warn("Model " + model + " returned safety refusal disclaimer, attempting anti-censorship re-frame...");
           }
         } catch (e) {
+          if (e.name === 'AbortError' || signal?.aborted) throw e;
           console.warn("Model " + model + " failed:", e);
           lastError = e;
         }
@@ -6905,12 +8211,14 @@
       }];
 
       for (var j = 0; j < modelsToTry.length; j++) {
+        if (signal && signal.aborted) throw new DOMException('Aborted', 'AbortError');
         var model2 = modelsToTry[j];
         try {
           var url2 = "https://generativelanguage.googleapis.com/v1beta/models/" + model2 + ":generateContent?key=" + state.apiKey;
           var res2 = await fetch(url2, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: signal,
             body: JSON.stringify({
               contents: [{ role: "user", parts: wrappedUserParts }],
               system_instruction: { parts: [{ text: reinforcedSystemInstruction }] },
@@ -6926,7 +8234,9 @@
               return text2;
             }
           }
-        } catch (e2) {}
+        } catch (e2) {
+          if (e2.name === 'AbortError' || signal?.aborted) throw e2;
+        }
       }
 
       // PASS 3: Artistic Cinematic Lexical Metaphor Bridge (Hollywood Director Aesthetic)
@@ -6939,12 +8249,14 @@
       }];
 
       for (var k = 0; k < modelsToTry.length; k++) {
+        if (signal && signal.aborted) throw new DOMException('Aborted', 'AbortError');
         var model3 = modelsToTry[k];
         try {
           var url3 = "https://generativelanguage.googleapis.com/v1beta/models/" + model3 + ":generateContent?key=" + state.apiKey;
           var res3 = await fetch(url3, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: signal,
             body: JSON.stringify({
               contents: [{ role: "user", parts: pass3UserParts }],
               system_instruction: { parts: [{ text: pass3System }] },
@@ -6960,8 +8272,12 @@
               return text3;
             }
           }
-        } catch (e3) {}
+        } catch (e3) {
+          if (e3.name === 'AbortError' || signal?.aborted) throw e3;
+        }
       }
+
+      if (signal && signal.aborted) throw new DOMException('Aborted', 'AbortError');
 
       // PASS 4: Zero-Failure Intelligent Deterministic Synthesis Fallback
       console.warn("All remote Gemini models returned empty/refused or quota exhausted. Utilizing local deterministic synthesis fallback.");
@@ -7051,12 +8367,26 @@
       return matches.length > 0 ? matches : null;
     }
 
-    function renderPromptOutput(raw, latencySec) {
+    function sanitizeImagesForHistory(images) {
+      if (!images || !Array.isArray(images) || images.length === 0) return [];
+      return images.slice(0, 5).map(function(img) {
+        return {
+          name: img.name || 'image.png',
+          base64: img.base64 || ''
+        };
+      });
+    }
+
+    function renderPromptOutput(raw, latencySec, userInputText) {
       emptyState.style.display = 'none';
       dynamicResults.style.display = 'flex';
       dynamicResults.innerHTML = '';
 
       var latencyBadgeHtml = latencySec ? ('<span class="latency-badge">⚡ ' + latencySec + '초 소요</span>') : '';
+      var currentInput = (userInputText !== undefined && userInputText !== null) ? userInputText : userPromptInput.value.trim();
+      var currentImages = sanitizeImagesForHistory(state.attachedImages);
+      var currentSubMode = state.activeModel === 'minimax' ? state.minimaxStyle : (state.activeModel === 'ltx' ? state.ltxStyle : state.kreaSubMode);
+      var currentPresetId = state.activeModel === 'minimax' ? state.selectedMinimaxPresetId : (state.activeModel === 'ltx' ? state.selectedLtxPresetId : (state.activeModel === 'krea' ? state.selectedKreaPromptId : null));
 
       var cuts = null;
       if (state.activeModel === 'krea' && state.kreaSubMode === 'storyboard') {
@@ -7153,14 +8483,29 @@
           korean: allKor,
           plain: allEngPlain,
           full: allFull,
-          latency: latencySec
+          latency: latencySec,
+          userInput: currentInput,
+          images: currentImages,
+          model: 'krea',
+          subMode: 'storyboard',
+          presetId: null,
+          duration: state.duration,
+          allowNsfw: state.allowNsfw,
+          includeKorean: state.includeKorean
         };
 
         saveHistoryItem({
           model: 'krea',
           style: '스토리보드 (' + cuts.length + '컷' + (latencySec ? ' | ' + latencySec + 's' : '') + ')',
           prompt: allEngFormatted,
-          trans: allKor
+          trans: allKor,
+          userInput: currentInput,
+          images: currentImages,
+          subMode: 'storyboard',
+          presetId: null,
+          duration: state.duration,
+          allowNsfw: state.allowNsfw,
+          includeKorean: state.includeKorean
         });
         return;
       }
@@ -7169,7 +8514,19 @@
       var eng = split.english;
       var kor = split.korean;
 
-      state.lastOutput = { english: eng, korean: kor, latency: latencySec };
+      state.lastOutput = {
+        english: eng,
+        korean: kor,
+        latency: latencySec,
+        userInput: currentInput,
+        images: currentImages,
+        model: state.activeModel,
+        subMode: currentSubMode,
+        presetId: currentPresetId,
+        duration: state.duration,
+        allowNsfw: state.allowNsfw,
+        includeKorean: state.includeKorean
+      };
 
       dynamicResults.innerHTML = [
         '<div class="result-box">',
@@ -7204,31 +8561,216 @@
 
       saveHistoryItem({
         model: state.activeModel,
-        style: (state.activeModel === 'minimax' ? state.minimaxStyle : state.activeModel === 'ltx' ? state.ltxStyle : state.kreaSubMode) + (latencySec ? ' (' + latencySec + 's)' : ''),
+        style: currentSubMode + (latencySec ? ' (' + latencySec + 's)' : ''),
         prompt: eng,
-        trans: kor
+        trans: kor,
+        userInput: currentInput,
+        images: currentImages,
+        subMode: currentSubMode,
+        presetId: currentPresetId,
+        duration: state.duration,
+        allowNsfw: state.allowNsfw,
+        includeKorean: state.includeKorean
       });
     }
 
     // Modal view & copy & txt
-    btnModalView.addEventListener('click', function() {
-      if (!state.lastOutput) return;
-      var eng = state.lastOutput.english || '';
-      var kor = state.lastOutput.korean || '';
-      if (!kor || kor === '번역 없음') {
+    function openPromptDetailModal(item) {
+      if (!item) return;
+      currentModalHistoryItem = item;
+
+      // 1. 모델 태그 설정
+      var modelName = (item.model || state.activeModel || 'prompt').toUpperCase();
+      var styleName = item.style || item.subMode || '';
+      if (modalItemMetaBadge) {
+        modalItemMetaBadge.className = 'history-model-tag ' + (item.model || state.activeModel || 'minimax');
+        modalItemMetaBadge.textContent = '[' + modelName + ']' + (styleName ? ' ' + styleName : '');
+      }
+
+      // 2. 사용자 요청 입력 내용 (User Request Input)
+      var userReq = (item.userInput !== undefined && item.userInput !== null) ? String(item.userInput).trim() : '';
+      if (modalPromptRequestText) {
+        if (userReq) {
+          modalPromptRequestText.textContent = userReq;
+          modalPromptRequestText.style.color = '#f1f5f9';
+          modalPromptRequestText.style.fontStyle = 'normal';
+        } else {
+          modalPromptRequestText.textContent = '(기록된 사용자 요청 입력 텍스트가 없습니다 - 생성 프롬프트 참조)';
+          modalPromptRequestText.style.color = 'var(--text-dim)';
+          modalPromptRequestText.style.fontStyle = 'italic';
+        }
+      }
+
+      // 3. 첨부 이미지 미리보기 그리드
+      var imgs = item.images || [];
+      if (modalImagesSection && modalAttachedImagesGrid) {
+        if (Array.isArray(imgs) && imgs.length > 0) {
+          modalImagesSection.style.display = 'block';
+          if (modalAttachedImagesCount) modalAttachedImagesCount.textContent = imgs.length;
+          modalAttachedImagesGrid.innerHTML = imgs.map(function(img, idx) {
+            var nameSafe = escapeHtml(img.name || ('Image #' + (idx + 1)));
+            return '<div class="modal-attached-thumb" data-thumb-idx="' + idx + '" title="' + nameSafe + ' (클릭 시 원본 확대)">' +
+              '<img src="' + (img.base64 || '') + '" alt="' + nameSafe + '">' +
+              '<span class="modal-attached-thumb-badge">#' + (idx + 1) + '</span>' +
+            '</div>';
+          }).join('');
+
+          modalAttachedImagesGrid.querySelectorAll('.modal-attached-thumb').forEach(function(thumb) {
+            thumb.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var idx = parseInt(thumb.getAttribute('data-thumb-idx'), 10);
+              var targetImg = imgs[idx];
+              if (targetImg && targetImg.base64) {
+                var lightbox = document.getElementById('geminiImageLightbox');
+                var lbImg = document.getElementById('lightboxImg');
+                if (lightbox && lbImg) {
+                  lbImg.src = targetImg.base64;
+                  lightbox.style.display = 'flex';
+                }
+              }
+            });
+          });
+        } else {
+          modalImagesSection.style.display = 'none';
+          modalAttachedImagesGrid.innerHTML = '';
+          if (modalAttachedImagesCount) modalAttachedImagesCount.textContent = '0';
+        }
+      }
+
+      // 4. 영문 마스터 프롬프트 및 한국어 번역
+      var eng = item.english || item.prompt || '';
+      var kor = item.korean || item.trans || '';
+      if (!kor || kor === '번역 없음' || kor === '스토리보드') {
         var split = splitEnglishAndKorean(eng);
         if (split.korean) {
           eng = split.english;
           kor = split.korean;
         }
       }
-      modalPromptEngText.textContent = eng;
-      modalPromptKorText.textContent = kor || '번역 없음';
+      if (modalPromptEngText) modalPromptEngText.textContent = eng;
+      if (modalPromptKorText) modalPromptKorText.textContent = kor || '번역 없음';
+
       promptViewModal.style.display = 'flex';
+    }
+
+    function restoreHistoryToInputs(item) {
+      if (!item) {
+        showToast('복원할 히스토리 정보가 없습니다.');
+        return;
+      }
+
+      // 1. 모델 탭 전환
+      var targetModel = item.model || 'minimax';
+      var targetBtn = Array.from(modelTabBtns).find(function(b) {
+        return b.getAttribute('data-model') === targetModel;
+      });
+      if (targetBtn) {
+        targetBtn.click();
+      }
+
+      // 2. 텍스트 가공 도구의 경우
+      if (targetModel === 'transformer') {
+        if (tfInputArea && item.userInput) {
+          tfInputArea.value = item.userInput;
+          updateTransformerStats();
+        }
+        promptViewModal.style.display = 'none';
+        showToast('📥 텍스트 가공 도구 입력창에 반영되었습니다. [가공 시작]을 눌러주세요!');
+        if (tfInputArea) {
+          tfInputArea.focus();
+          tfInputArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      // 3. 프롬프트 생성 모델(MiniMax / LTX / KREA)의 경우
+      // 3-1. 사용자 요청 텍스트 입력창 복원
+      if (userPromptInput) {
+        userPromptInput.value = item.userInput || '';
+        if (charCount) charCount.textContent = userPromptInput.value.length + "자";
+      }
+
+      // 3-2. 세부 모드 및 프리셋 복원
+      if (targetModel === 'minimax') {
+        if (item.subMode) state.minimaxStyle = item.subMode;
+        if (item.presetId) state.selectedMinimaxPresetId = item.presetId;
+        renderMinimaxSubmodes();
+      } else if (targetModel === 'ltx') {
+        if (item.subMode) state.ltxStyle = item.subMode;
+        if (item.presetId) state.selectedLtxPresetId = item.presetId;
+        renderLtxSubmodes();
+      } else if (targetModel === 'krea') {
+        if (item.subMode) state.kreaSubMode = item.subMode;
+        if (item.presetId) state.selectedKreaPromptId = item.presetId;
+        renderKreaSubmodes();
+      }
+
+      // 3-3. 옵션 복원 (재생 시간 / 프레임 수)
+      if (item.duration !== undefined) {
+        state.duration = item.duration;
+        updateDurationDisplay();
+      }
+      // 3-4. NSFW & 번역 토글 상태 복원
+      if (item.allowNsfw !== undefined) {
+        state.allowNsfw = !!item.allowNsfw;
+        var nsfwToggle = document.getElementById('toggleNsfw');
+        if (nsfwToggle) nsfwToggle.checked = state.allowNsfw;
+      }
+      if (item.includeKorean !== undefined) {
+        state.includeKorean = !!item.includeKorean;
+        var korToggle = document.getElementById('toggleIncludeKorean');
+        if (korToggle) korToggle.checked = state.includeKorean;
+      }
+
+      // 3-5. 첨부 이미지 복원
+      if (Array.isArray(item.images) && item.images.length > 0) {
+        state.attachedImages = item.images.map(function(img) {
+          return {
+            name: img.name || 'restored_image.png',
+            base64: img.base64
+          };
+        });
+      } else {
+        state.attachedImages = [];
+      }
+      renderPreviews();
+
+      // 3-6. 모달 닫기 & 입력창 포커스 및 화면 이동
+      promptViewModal.style.display = 'none';
+      if (userPromptInput) {
+        userPromptInput.focus();
+        userPromptInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      showToast('✨ 이전 요청 내용 및 첨부 이미지가 반영되었습니다! [생성]을 누르면 다시 생성됩니다.');
+    }
+
+    btnModalView.addEventListener('click', function() {
+      if (!state.lastOutput) {
+        showToast('생성된 프롬프트 출력이 없습니다.');
+        return;
+      }
+      openPromptDetailModal(state.lastOutput);
     });
 
     btnCloseViewModal.addEventListener('click', function() { promptViewModal.style.display = 'none'; });
     btnCloseViewModalBtn.addEventListener('click', function() { promptViewModal.style.display = 'none'; });
+
+    if (btnRestoreAndApply) {
+      btnRestoreAndApply.addEventListener('click', function() {
+        restoreHistoryToInputs(currentModalHistoryItem);
+      });
+    }
+
+    if (btnCopyModalRequest) {
+      btnCopyModalRequest.addEventListener('click', function() {
+        var reqText = (modalPromptRequestText && modalPromptRequestText.textContent) || '';
+        if (reqText.indexOf('(기록된 사용자 요청') === 0) reqText = '';
+        navigator.clipboard.writeText(reqText);
+        showToast('📋 사용자 요청 내용 복사 완료');
+      });
+    }
+
     btnCopyModalEng.addEventListener('click', function() {
       navigator.clipboard.writeText(modalPromptEngText.textContent || '');
       showToast('📋 영문 프롬프트 복사 완료');
@@ -7275,7 +8817,22 @@
       }, item);
       state.history.unshift(entry);
       if (state.history.length > 50) state.history.pop();
-      localStorage.setItem('prompt_gen_history_v2', JSON.stringify(state.history));
+
+      try {
+        localStorage.setItem('prompt_gen_history_v2', JSON.stringify(state.history));
+      } catch (e) {
+        console.warn('localStorage quota exceeded. Pruning image data from older history items...', e);
+        for (var i = 3; i < state.history.length; i++) {
+          if (state.history[i].images && state.history[i].images.length > 0) {
+            state.history[i].images = [];
+          }
+        }
+        try {
+          localStorage.setItem('prompt_gen_history_v2', JSON.stringify(state.history));
+        } catch (e2) {
+          console.error('Failed to save history even after pruning images:', e2);
+        }
+      }
       renderHistoryGallery();
     }
 
@@ -7292,9 +8849,10 @@
           var split = splitEnglishAndKorean(cleanSnippet);
           if (split.korean) cleanSnippet = split.english;
         }
+        var hasImagesBadge = (item.images && item.images.length > 0) ? '<span style="font-size: 9.5px; background: rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 1px 4px; border-radius: 3px; margin-left: 4px;">🖼️ ' + item.images.length + '장</span>' : '';
         return '<div class="history-card" data-id="' + item.id + '">' +
           '<div class="history-card-header">' +
-            '<span class="history-model-tag ' + item.model + '">[' + item.model.toUpperCase() + '] ' + item.style + '</span>' +
+            '<span class="history-model-tag ' + item.model + '">[' + item.model.toUpperCase() + '] ' + item.style + hasImagesBadge + '</span>' +
             '<span class="history-time">' + new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</span>' +
           '</div>' +
           '<div class="history-snippet">' + escapeHtml(cleanSnippet) + '</div>' +
@@ -7307,18 +8865,7 @@
           var id = card.getAttribute('data-id');
           var found = state.history.find(function(h) { return h.id === id; });
           if (found) {
-            var eng = found.prompt || '';
-            var kor = found.trans || '';
-            if (!kor || kor === '번역 없음' || kor === '스토리보드') {
-              var split = splitEnglishAndKorean(eng);
-              if (split.korean) {
-                eng = split.english;
-                kor = split.korean;
-              }
-            }
-            modalPromptEngText.textContent = eng;
-            modalPromptKorText.textContent = kor || '번역 없음';
-            promptViewModal.style.display = 'flex';
+            openPromptDetailModal(found);
           }
         });
       });
@@ -7527,13 +9074,20 @@
         showToast('처리할 파일이 없습니다.');
         return;
       }
+      isBatchProcessing = true;
       btnStartBatch.disabled = true;
       btnStartBatch.textContent = '일괄 처리 중...';
+      if (btnStopBatch) btnStopBatch.style.display = 'inline-flex';
 
       var activePreset = customTransformerPrompts.find(function(p) { return p.id === state.tfSelectedPresetId; }) || customTransformerPrompts[0];
       var finalPrompt = buildSystemPromptWithCharacter(activePreset.systemPrompt, state.tfCharacter);
+      var completedCount = 0;
 
       for (var i = 0; i < state.tfBatchQueue.length; i++) {
+        if (!isBatchProcessing) {
+          showToast('🛑 일괄 가공 처리가 중지되었습니다.');
+          break;
+        }
         var item = state.tfBatchQueue[i];
         if (item.status === '완료') continue;
         item.status = '처리 중';
@@ -7544,23 +9098,36 @@
           else out = await callGeminiAPI(item.content, finalPrompt);
           item.result = out;
           item.status = '완료';
+          completedCount++;
           downloadText(out, item.name.replace(/\.[^/.]+$/, "") + (activePreset.suggestedFileSuffix || '_가공본.txt'), 'text/plain');
         } catch (e) {
           item.status = '오류';
         }
         renderBatchQueue();
       }
+
+      var wasRunning = isBatchProcessing;
+      isBatchProcessing = false;
+      if (btnStopBatch) btnStopBatch.style.display = 'none';
       btnStartBatch.disabled = false;
       btnStartBatch.textContent = '일괄 가공 시작 🚀';
-      showToast('🎉 일괄 가공 처리가 완료되었습니다!');
+      if (wasRunning && completedCount > 0) {
+        showToast('🎉 일괄 가공 처리가 완료되었습니다!');
+      }
     });
+
+    if (btnStopBatch) {
+      btnStopBatch.addEventListener('click', function() {
+        isBatchProcessing = false;
+        btnStopBatch.style.display = 'none';
+        showToast('🛑 일괄 가공을 중지합니다.');
+      });
+    }
 
     // History Modal Button
     btnOpenHistoryModal.addEventListener('click', function() {
       if (state.history.length > 0) {
-        modalPromptEngText.textContent = state.history[0].prompt;
-        modalPromptKorText.textContent = state.history[0].trans || '번역 없음';
-        promptViewModal.style.display = 'flex';
+        openPromptDetailModal(state.history[0]);
       } else {
         showToast('저장된 히스토리가 없습니다.');
       }
