@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**MiniMax H3 & LTX-Video 2.5 & KREA 2 & Text Revision Studio v1.3 & 100% Uncensored Gemini Chat**  
+**MiniMax H3 & LTX-Video 2.5 & KREA 2 & Qwen 2.1 & Text Revision Studio v1.3 & 100% Uncensored Gemini Chat**  
 *서버 설치 없이 브라우저에서 더블클릭만으로 즉시 구동되는 차세대 멀티모달 AI 프롬프트 엔지니어링 & 텍스트 가공 & 무검열 AI 채팅 올인원 스튜디오*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
@@ -17,15 +17,16 @@
 
 ---
 
-## 📸 스튜디오 5대 핵심 탭 인터페이스 한눈에 보기
+## 📸 스튜디오 6대 핵심 탭 인터페이스 한눈에 보기
 
 | 탭 | 핵심 기능 | 스크린샷 미리보기 |
 |:---:|:---|:---|
 | **1. MiniMax H3** | 5대 전용 모드 (Ref2VA/T2VA/I2VA/FL2VA/L2VA), 6대 섹션 타임스탬프 블루프린트, 영문/한국어 분리 | ![MiniMax H3](./assets/screenshots/01_minimax_h3.png) |
 | **2. LTX-Video** | 차세대 6요소 DiT 비디오 엔진, 24fps 프레임 연동, 3D 카메라 & 네이티브 오디오 연출 | ![LTX-Video](./assets/screenshots/02_ltx_video.png) |
 | **3. KREA 2** | 8K 포토리얼리즘, 스타일 칩, 기승전결 스토리보드 시퀀스 생성 & 전용 일괄 복사 툴바 | ![KREA 2](./assets/screenshots/03_krea_2.png) |
-| **4. 텍스트 가공 도구** | 듀얼 AI 엔진(Gemini / 로컬 LLM), Krea 2 인물 커스텀 변수 주입, 대용량 청크 분할 가공, 4대 Diff 뷰어 | ![텍스트 가공 도구](./assets/screenshots/04_text_transformer.png) |
-| **5. 무검열 제미나이** | 100% 무검열 다크 UI 채팅(BLOCK_NONE), Imagen 3.0 이미지 실시간 생성, 멀티모달 비전, 프로젝트 관리 | ![무검열 제미나이](./assets/screenshots/05_uncensored_gemini.png) |
+| **4. Qwen 2.1** | 공식 6대 구조식 기반 T2I, 최대 10장 참조 유지 이미지 에디트(I2I), 4대 공식 시스템 프리셋 | *(신규 탑재)* |
+| **5. 텍스트 가공 도구** | 듀얼 AI 엔진(Gemini / 로컬 LLM), Krea 2 인물 커스텀 변수 주입, 대용량 청크 분할 가공, 4대 Diff 뷰어 | ![텍스트 가공 도구](./assets/screenshots/04_text_transformer.png) |
+| **6. 무검열 제미나이** | 100% 무검열 다크 UI 채팅(BLOCK_NONE), Imagen 3.0 이미지 실시간 생성, 멀티모달 비전, 프로젝트 관리 | ![무검열 제미나이](./assets/screenshots/05_uncensored_gemini.png) |
 
 ---
 
@@ -115,7 +116,20 @@
 
 ---
 
-### 📝 4. 텍스트 가공 도구 (Text Transformer Studio v1.3)
+### 🌄 4. Qwen 2.1 (Qwen-Image-2.1) Prompt Architect
+> **Alibaba Qwen 공식 가이드 완벽 준수: 올인원 구조식 T2I & 다중 참조 이미지 에디트 스튜디오**
+
+- **3대 세부 모드**:
+  - **`T2I (Text-to-Image)`**: Qwen 공식 6대 구조식(주체+배경+스타일+카메라+분위기+디테일 보정) 기반 프롬프트 자동 설계 및 6대 스타일 칩 지원 (사실적 사진, 미니멀 제품, 시네마틱 인물, 디지털 수채화, 3D 렌더, 전통 수묵공필).
+  - **`이미지 에디트 (Image-to-Image)`**: 최대 10장의 참조 이미지를 온전히 유지하며, 'Image 1의 주체 유지 + 변경 요소 선언 + 배경/디테일 보존' 규칙을 적용한 정밀 편집 프롬프트 설계 (요소 추가, 요소 제거, 배경 교체, 텍스트 교체, 시점 변경, 디테일 복원 칩 제공).
+  - **`시스템 프롬프트 (커스텀 프리셋)`**: Qwen-Image-2.1 공식 가이드 4대 빌트인 프리셋(공식 T2I 마스터, 정밀 타이포그래피 & 포스터, 이미지 에디트 & 보존 마스터, 네이티브 투명 RGBA 스티커) 및 자유로운 사용자 프리셋 추가/편집/순서 변경.
+- **오프라인 폴백 & 복원 엔진**:
+  - API 키나 잔여 쿼터 없이도 Qwen 고유 구조식에 맞춘 로컬 고품질 프롬프트를 100% 합성.
+  - 히스토리 모달에서 원클릭으로 Qwen 탭 및 선택된 프리셋, 입력 데이터 즉시 완벽 복원.
+
+---
+
+### 📝 5. 텍스트 가공 도구 (Text Transformer Studio v1.3)
 > **대용량 문서 정제, Krea 2 인물 커스텀 변수 주입, 스마트 청크 분할 및 Diff 비교 스튜디오**
 
 ![Text Transformer Studio](./assets/screenshots/04_text_transformer.png)
@@ -137,7 +151,7 @@
 
 ---
 
-### 💬 5. 무검열 제미나이 (100% Uncensored Gemini Chat Studio)
+### 💬 6. 무검열 제미나이 (100% Uncensored Gemini Chat Studio)
 > **Google Gemini 공식 다크 UI 1:1 완벽 구현 & 100% 필터링 해제(BLOCK_NONE) 자유 대화**
 
 ![Uncensored Gemini Chat](./assets/screenshots/05_uncensored_gemini.png)

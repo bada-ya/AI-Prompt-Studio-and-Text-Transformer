@@ -417,9 +417,9 @@
       gap: 16px;
     }
 
-    /* Model Selector Tabs (4 Models / Tools) */
+    /* Model Selector Tabs (Sticky: always visible under the global header) */
     .model-nav {
-      background: rgba(14, 19, 31, 0.9);
+      background: rgba(14, 19, 31, 0.94);
       border: 1px solid var(--border-color);
       padding: 6px;
       border-radius: var(--radius-lg);
@@ -427,6 +427,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 6px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+      /* 🔒 스크롤 시 상단 헤더 바로 아래에 고정되어 탭이 가려지지 않도록 함 */
+      position: sticky;
+      top: var(--header-h, 66px);
+      z-index: 90;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    /* 스크롤로 실제 고정(stuck)된 상태에서 입체감 부여 */
+    .model-nav.is-stuck {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+      border-color: rgba(255, 255, 255, 0.16);
     }
 
     @media (max-width: 768px) {
@@ -1596,6 +1610,7 @@
     .history-model-tag.krea { background: rgba(16, 185, 129, 0.15); color: #10b981; }
     .history-model-tag.minimax { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
     .history-model-tag.ltx { background: rgba(6, 182, 212, 0.15); color: #38bdf8; }
+    .history-model-tag.qwen { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
     .history-model-tag.transformer { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
 
     .history-time {
@@ -2333,13 +2348,23 @@
       to { transform: rotate(360deg); }
     }
       /* UNCENSORED GEMINI CHAT STYLES */
-    .model-nav { grid-template-columns: repeat(5, 1fr) !important; }
+    .model-nav { grid-template-columns: repeat(6, 1fr) !important; }
+    @media (max-width: 1280px) { .model-tab-btn { font-size: 11.5px !important; padding: 9px 6px !important; } }
     @media (max-width: 1024px) { .model-nav { grid-template-columns: repeat(3, 1fr) !important; } }
     @media (max-width: 640px) { .model-nav { grid-template-columns: repeat(2, 1fr) !important; } }
     .model-tab-btn.active[data-model="uncensored-gemini"] {
       background: linear-gradient(135deg, #4338ca, #7c3aed, #db2777) !important;
       color: #fff !important;
       box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45) !important;
+    }
+    .model-tab-btn.active[data-model="qwen"] {
+      background: linear-gradient(135deg, #f43f5e, #be123c) !important;
+      color: #fff !important;
+      box-shadow: 0 4px 18px rgba(244, 63, 94, 0.45) !important;
+    }
+    .brand.qwen .brand-logo-badge {
+      background: linear-gradient(135deg, #fb7185, #be123c) !important;
+      box-shadow: 0 0 16px rgba(244, 63, 94, 0.5) !important;
     }
     .brand.uncensored-gemini .brand-logo-badge {
       background: linear-gradient(135deg, #4285f4, #9b72cb, #d96570) !important;
@@ -3909,8 +3934,8 @@
     
     <div class="header-actions">
       <!-- Version & Changelog Badge Button -->
-      <button class="btn-version" id="btnVersionChangelog" title="버전 업데이트 내역 (v1.0.2) 보기">
-        <span class="version-tag">v1.0.2</span>
+      <button class="btn-version" id="btnVersionChangelog" title="버전 업데이트 내역 (v1.0.3) 보기">
+        <span class="version-tag">v1.0.3</span>
       </button>
 
       <!-- Theme Switcher Button (Cycles: Slate -> Amber -> Teal -> Classic) -->
@@ -3952,8 +3977,8 @@
   <!-- Main Layout -->
   <main class="app-layout">
     
-    <!-- Model Selector Tabs (4 Models / Tools) -->
-    <nav class="model-nav">
+    <!-- Model Selector Tabs (MiniMax H3 / LTX-Video / KREA 2 / Qwen 2.1 / 텍스트 가공 / 무검열 제미나이) -->
+    <nav class="model-nav" id="modelNav">
       <button class="model-tab-btn" data-model="minimax">
         <span>● MiniMax H3</span>
       </button>
@@ -3962,6 +3987,9 @@
       </button>
       <button class="model-tab-btn active" data-model="krea">
         <span>● KREA 2</span>
+      </button>
+      <button class="model-tab-btn" data-model="qwen">
+        <span>● Qwen 2.1</span>
       </button>
       <button class="model-tab-btn" data-model="transformer">
         <span>● 텍스트 가공 도구</span>
@@ -4717,8 +4745,75 @@
       
       <div class="changelog-content" style="padding: 10px 0; display: flex; flex-direction: column; gap: 16px;">
         
-        <!-- v1.0.2 Entry -->
+        <!-- v1.0.3 Entry -->
         <div class="changelog-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px 18px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="background: linear-gradient(135deg, #f43f5e, #be123c); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; font-family: monospace;">v1.0.3</span>
+              <strong style="font-size: 15px; color: var(--text-main);">Qwen 2.1 신규 탭 신설 & 상단 탭 바 스크롤 고정 (Sticky)</strong>
+            </div>
+            <span style="font-size: 12px; color: var(--text-muted); font-weight: 600;">2026.09.28</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--text-main);">
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🔒</span>
+              <div>
+                <strong>상단 모델 탭 바 스크롤 고정 (Sticky Navigation)</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • 페이지 스크롤 시 'MiniMax H3 ~ 무검열 제미나이' 탭 바가 상단 헤더 바로 아래에 완벽 고정<br>
+                  • 헤더 높이를 런타임 실측(61~66px)하여 오프셋 자동 계산, 테마/창 크기/폰트 로딩 변동에도 오차 없이 유지<br>
+                  • 실제 고정 시 입체 그림자(is-stuck) 효과 부여 및 배경 블러(Backdrop blur) 적용
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🌄</span>
+              <div>
+                <strong>Qwen 2.1 (Qwen-Image-2.1) 신규 프롬프트 아키텍트 탭 신설</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • KREA 2 와 텍스트 가공 도구 사이에 독립된 6번째 탭으로 통합 (KREA 2 UI 형식 100% 계승)<br>
+                  • 6열 반응형 그리드 및 로즈 레드 테마 그라디언트, QW 로고 뱃지 적용
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">📐</span>
+              <div>
+                <strong>Qwen 공식 프롬프트 가이드 기반 3대 세부 모드 탑재</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • <strong>T2I</strong>: 공식 6대 구조식(주체+배경+스타일+카메라+분위기+디테일 보정) + 사실적 사진/제품/인물/수채화/3D/수묵공필 6대 스타일 칩 지원<br>
+                  • <strong>이미지 에디트</strong>: 최대 10장 참조 이미지 유지(Image 1/2 지칭), 변경 요소 선언 + 보존 요소 명시 규칙, 요소 추가/제거/교체/문자/시점/복원 6대 편집 칩 제공 (첨부 이미지 장수 실시간 반영)<br>
+                  • <strong>시스템 프롬프트</strong>: 전용 프리셋 매니저 모달(작성·수정·순서이동·삭제) 연동
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">⚙️</span>
+              <div>
+                <strong>Qwen-Image-2.1 공식 가이드 4대 빌트인 프리셋 제공</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  ① <strong>공식 T2I 마스터</strong>: CFG 1 긍정 프롬프트 올인원 구조식 반영<br>
+                  ② <strong>정밀 타이포그래피 & 포스터</strong>: 따옴표 기반 문자열 렌더링 및 레이아웃/위계 지침<br>
+                  ③ <strong>이미지 에디트 & 보존 마스터</strong>: 다중 참조 정체성 보존 공식 규칙<br>
+                  ④ <strong>네이티브 투명(RGBA) 스티커</strong>: 알파 채널 배경 투명 이미지 전용 생성 지침
+                </span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 8px;">
+              <span style="font-size: 15px;">🛡️</span>
+              <div>
+                <strong>Qwen 오프라인 결정론적 폴백 엔진 & 히스토리 복원 버그 수정</strong><br>
+                <span style="color: var(--text-muted); font-size: 12px;">
+                  • API 키 부재 또는 쿼터 소진 시에도 중단 없는 로컬 고품질 Qwen 프롬프트 자동 합성<br>
+                  • 기존 MiniMax / LTX 히스토리에서 '이 설정으로 입력창에 반영' 시 프리셋 ID가 누락되던 버그를 함께 정상화
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- v1.0.2 Entry -->
+        <div class="changelog-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px 18px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); opacity: 0.9;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; font-family: monospace;">v1.0.2</span>
@@ -4862,7 +4957,7 @@
     </div>
   </div>
 
-  <!-- System Prompt Preset Manager Modal (MiniMax / LTX / KREA) -->
+  <!-- System Prompt Preset Manager Modal (MiniMax / LTX / KREA / Qwen) -->
   <div class="modal-backdrop" id="systemPromptPresetModal" style="display: none;">
     <div class="modal-box large" style="max-width: 860px; max-height: 88vh; display: flex; flex-direction: column;">
       <div class="modal-header">
@@ -4878,6 +4973,7 @@
         <button class="preset-model-tab-btn active" data-model="minimax">🎬 MiniMax H3 프리셋</button>
         <button class="preset-model-tab-btn" data-model="ltx">⚡ LTX-Video 프리셋</button>
         <button class="preset-model-tab-btn" data-model="krea">🎨 KREA 2 프리셋</button>
+        <button class="preset-model-tab-btn" data-model="qwen">🌄 Qwen-Image 2.1 프리셋</button>
       </div>
 
       <!-- 2-Column Body -->
@@ -5684,6 +5780,76 @@
       }
     ];
 
+    /* -------------------------------------------------------------
+       QWEN-IMAGE 2.1 (qwen2.1) OFFICIAL PROMPT GUIDE PRESETS
+       공식 가이드 출처:
+       - QwenCloud Docs > Accuracy tuning > Text-to-image (프롬프트 구조식 / 시각 어휘 사전)
+       - QwenCloud Docs > Image gen & edits > Image editing (편집 지시문 예시)
+       - QwenLM/Qwen-Image-2.1 공식 저장소 & Prompting 가이드 (레터링 / 보존 규칙 / RGBA)
+       ------------------------------------------------------------- */
+    const DEFAULT_QWEN_PRESETS = [
+      {
+        id: 'qwen21_t2i_official_master',
+        name: '🌄 Qwen 2.1 공식 T2I 마스터',
+        description: '공식 구조식(주체+배경+스타일+카메라+분위기+디테일 보정)을 그대로 따르는 정밀 텍스트→이미지 프롬프트',
+        systemPrompt: 'You are a world-class prompt engineer for Qwen-Image-2.1, a unified text-to-image (T2I) and image-editing diffusion model (7B visual generation DiT).\n' +
+          '[OFFICIAL QWEN-IMAGE PROMPT FORMULA - FOLLOW STRICTLY]\n' +
+          'Basic formula: Subject + Setting + Style\n' +
+          'Advanced formula: Subject + Setting + Style + Camera + Atmosphere + Detail modifiers\n\n' +
+          'RULES:\n' +
+          '1. Output ONE concrete, natural-language English paragraph (about 70-130 words). No bullet lists, no headings, no JSON.\n' +
+          '2. Describe in this order: medium -> subject -> action -> relationships -> composition -> lighting -> materials, and place any exact lettering last.\n' +
+          '3. Keep every attribute directly adjacent to the object it describes (never detach an attribute from its subject).\n' +
+          '4. Cover these dimensions when relevant: Subject, Setting, Style, Camera, Atmosphere, Detail modifiers.\n' +
+          '5. Use the official visual vocabulary: shot size (extreme close-up, close-up, medium shot, wide shot), perspective (front view, side view, low angle, high angle, bird view, centered composition), lens (macro lens, wide-angle lens, telephoto lens, photographic lens), lighting (natural light, sunlight, moonlight, starlight, backlight, neon light, ambient light).\n' +
+          '6. Qwen-Image-2.1 is sampled at CFG 1, so the negative-conditioning branch does NOT guide generation. Never rely on a negative prompt: restate every essential requirement inside the positive prompt.\n' +
+          '7. Add quality refinements for the Detail modifiers slot (for example 4K, high resolution, ultra high definition, sharp edges, best quality).\n' +
+          '8. End with --- KOREAN TRANSLATION --- and a faithful, natural Korean translation of the final English prompt.'
+      },
+      {
+        id: 'qwen21_typography_poster',
+        name: '🔤 정밀 타이포그래피 & 포스터',
+        description: '따옴표로 정확한 문구·위치·위계를 지정하는 Qwen 강점(텍스트 렌더링) 전용 지침',
+        systemPrompt: 'You are a prompt engineer specializing in the award-winning text rendering strength of Qwen-Image-2.1.\n' +
+          '[OFFICIAL LETTERING RULES]\n' +
+          '- Always wrap the exact wording inside double quotes, and never paraphrase the requested text.\n' +
+          '- Specify the position and the hierarchy of every text element, for example a large cream headline at the top that reads exactly the requested phrase, plus a smaller line at the bottom.\n' +
+          '- Describe typography style, inks and colors (flat navy, coral and cream inks), generous margins, layout balance and subtle paper grain.\n' +
+          '- Keep each label short (1-5 words) because clear headings and short labels render most accurately.\n' +
+          '- For posters, add the target aspect ratio cue, for example --ar 16:9, and the overall poster genre.\n' +
+          'Write ONE dense English paragraph (70-140 words) that contains all quoted lettering, then end with --- KOREAN TRANSLATION --- and a faithful Korean translation that also lists the quoted strings.'
+      },
+      {
+        id: 'qwen21_edit_preserve',
+        name: '🪄 이미지 에디트 & 보존 마스터',
+        description: '변경할 요소와 반드시 보존할 요소를 분리 선언하는 공식 I2I 편집 지침 (다중 참조 지원)',
+        systemPrompt: 'You are a prompt engineer for Qwen-Image-2.1 image editing (I2I / instruction-based editing).\n' +
+          '[OFFICIAL EDITING RULES]\n' +
+          '1. Output ONE direct English editing instruction (about 40-100 words) written as a command, not as a story.\n' +
+          '2. Name the changes first, then explicitly name the elements to preserve. Never leave preservation implicit.\n' +
+          '3. Refer to reference images by their index exactly as the model expects: the girl in Image 1, the dress from Image 2, the pose from Image 3. Qwen-Image-2.1 supports multiple reference images (up to 10) and identity preservation for people and products.\n' +
+          '4. Use the official verb set: Add / Remove / Replace ... with ... / Change ... to ... / Turn ... into ... .\n' +
+          '5. Keep each edit atomic: one primary change plus, at most, one or two tightly related secondary changes.\n' +
+          '6. Describe local edit regions precisely when relevant: circled area, painted annotation, separate mask, upper-left, lower-right, background, foreground.\n' +
+          '7. For text edits, quote the exact target string, for example: Change "Qwen-Image" to candy colors.\n' +
+          '8. State the final preservation clause explicitly, for example: Keep the bottle shape, cream EMBER label, marble pedestal, camera angle, background and lighting.\n' +
+          'End with --- KOREAN TRANSLATION --- and a faithful Korean translation of the edit instruction.'
+      },
+      {
+        id: 'qwen21_transparent_rgba',
+        name: '🪟 네이티브 투명(RGBA) 스티커',
+        description: '알파 채널 배경 투명 이미지를 생성하는 Qwen-Image-2.1 고유 기능 전용 지침',
+        systemPrompt: 'You are a prompt engineer for the native transparency (RGBA) capability of Qwen-Image-2.1.\n' +
+          '[OFFICIAL TRANSPARENCY RULES]\n' +
+          '- Open the prompt with the exact sentence: This is an RGBA image with transparency.\n' +
+          '- Describe the subject in a single dense English paragraph, then state: The image has alpha channel and the background is transparent.\n' +
+          '- Require a clean complete silhouette and generous empty margin around the subject so the cutout stays usable.\n' +
+          '- Mention the intended usage (sticker, cutout asset, layer for compositing) and that PNG output is expected.\n' +
+          '- Do NOT describe any background scenery, because the background must remain fully transparent.\n' +
+          'End with --- KOREAN TRANSLATION --- and a faithful Korean translation.'
+      }
+    ];
+
     const MINIMAX_SUBMODES = [
       { id: 'ref2va', name: 'Ref2VA', tag: '전체 참조 모드', icon: '🎬', checkpoint: 'ref2va checkpoint', desc: '인물, 의상, 사물, 동작, 비디오 및 오디오 자산을 멀티모달로 참조하여 새로운 샷 생성' },
       { id: 't2va', name: 'T2VA', tag: '텍스트 전용', icon: '⚡', checkpoint: 'fl2va checkpoint', desc: '텍스트 지시문만으로 24fps 비디오 및 네이티브 스테레오 오디오 동시 생성' },
@@ -5702,6 +5868,33 @@
       { id: 'system_prompt', name: '시스템 프롬프트', tag: '사용자 지정 프리셋', icon: '⚙️', checkpoint: 'custom-preset-engine', desc: '사용자가 등록한 고유 시스템 프롬프트 지침을 주입하여 생성' }
     ];
 
+    /* -------------------------------------------------------------
+       QWEN-IMAGE 2.1 (qwen2.1) SUB-MODES / STYLES / EDIT TYPES
+       ------------------------------------------------------------- */
+    const QWEN_SUBMODES = [
+      { id: 't2i', name: 'T2I', tag: '텍스트→이미지', icon: '🌄', checkpoint: 'qwen-image-2.1 t2i', desc: '공식 구조식(주체+배경+스타일+카메라+분위기+디테일) 기반 텍스트→이미지 프롬프트 생성' },
+      { id: 'image_edit', name: '이미지 에디트', tag: '참조 유지 편집', icon: '🪄', checkpoint: 'qwen-image-2.1 edit', desc: '최대 10장 참조 이미지의 정체성을 유지하며 추가/제거/교체/문자 수정/시점 변환 지시문 생성' },
+      { id: 'system_prompt', name: '시스템 프롬프트', tag: '사용자 지정 프리셋', icon: '⚙️', checkpoint: 'custom-preset-engine', desc: '사용자가 등록한 고유 시스템 프롬프트 지침을 주입하여 생성' }
+    ];
+
+    const QWEN_STYLES = [
+      { id: 'photoreal', name: '사실적 사진', icon: '🌄' },
+      { id: 'product', name: '제품 사진', icon: '📦' },
+      { id: 'portrait', name: '인물 클로즈업', icon: '👤' },
+      { id: 'watercolor', name: '수채화 일러스트', icon: '🎨' },
+      { id: 'render_3d', name: '3D 렌더', icon: '🧊' },
+      { id: 'ink_painting', name: '수묵 & 공필', icon: '🖌️' }
+    ];
+
+    const QWEN_EDIT_TYPES = [
+      { id: 'add', name: '요소 추가', icon: '➕', keyword: 'Add' },
+      { id: 'remove', name: '요소 제거', icon: '➖', keyword: 'Remove' },
+      { id: 'replace', name: '교체 & 변형', icon: '🔁', keyword: 'Replace ... with ... / Change ... to ...' },
+      { id: 'text_edit', name: '문자 수정', icon: '🔤', keyword: 'Change the quoted text to ...' },
+      { id: 'viewpoint', name: '시점 변환', icon: '🔭', keyword: 'Get a front view / Face left / Get a rear view' },
+      { id: 'restore', name: '복원 & 보정', icon: '🖼️', keyword: 'Restore, remove scratches, reduce noise, enhance details' }
+    ];
+
     const KREA_STYLES = [
       { id: 'cinematic_photo', name: '시네마틱 사진', icon: '🎬' },
       { id: 'iphone_snapshot', name: '아이폰 스냅샷', icon: '📱' },
@@ -5717,19 +5910,24 @@
     let customMinimaxPrompts = JSON.parse(localStorage.getItem('minimax_custom_system_prompts') || 'null') || DEFAULT_MINIMAX_PRESETS;
     let customLtxPrompts = JSON.parse(localStorage.getItem('ltx_custom_system_prompts') || 'null') || DEFAULT_LTX_PRESETS;
     let customKreaPrompts = JSON.parse(localStorage.getItem('krea2_custom_system_prompts') || 'null') || DEFAULT_KREA_PRESETS;
+    let customQwenPrompts = JSON.parse(localStorage.getItem('qwen_custom_system_prompts') || 'null') || DEFAULT_QWEN_PRESETS;
     let customStoryboardPrompts = JSON.parse(localStorage.getItem('storyboard_custom_system_prompts') || 'null') || DEFAULT_STORYBOARD_PRESETS;
     let customTransformerPrompts = JSON.parse(localStorage.getItem('app_all_presets_v1') || 'null') || DEFAULT_TRANSFORMER_PRESETS;
 
     const state = {
-      activeModel: 'krea', // 'minimax', 'ltx', 'krea', 'transformer'
+      activeModel: 'krea', // 'minimax', 'ltx', 'krea', 'qwen', 'transformer', 'uncensored-gemini'
       kreaSubMode: 'general',
       minimaxStyle: 'ref2va',
       ltxStyle: 'ltx_2_5',
       kreaStyle: 'cinematic_photo',
+      qwenSubMode: 't2i',
+      qwenStyle: 'photoreal',
+      qwenEditType: 'replace',
       duration: 10,
       selectedMinimaxPromptId: customMinimaxPrompts[0]?.id || 'minimax_cinematic_hollywood',
       selectedLtxPromptId: customLtxPrompts[0]?.id || 'ltx_dit_master',
       selectedKreaPromptId: customKreaPrompts[0]?.id || 'krea_cinematic_photo',
+      selectedQwenPromptId: customQwenPrompts[0]?.id || 'qwen21_t2i_official_master',
       selectedStoryboardPromptId: customStoryboardPrompts[0]?.id || 'storyboard_default',
       storyboardCutCount: 4,
       isNSFW: true,
@@ -5969,13 +6167,14 @@
     const btnSavePreset = document.getElementById('btnSavePreset');
     const btnDeletePreset = document.getElementById('btnDeletePreset');
 
-    let currentPresetModel = 'minimax'; // 'minimax' | 'ltx' | 'krea'
+    let currentPresetModel = 'minimax'; // 'minimax' | 'ltx' | 'krea' | 'qwen'
     let activeEditPresetId = null;
 
     function getPresetListByModel(model) {
       if (model === 'minimax') return customMinimaxPrompts;
       if (model === 'ltx') return customLtxPrompts;
       if (model === 'krea') return customKreaPrompts;
+      if (model === 'qwen') return customQwenPrompts;
       return customMinimaxPrompts;
     }
 
@@ -5992,12 +6191,16 @@
         customKreaPrompts = list;
         localStorage.setItem('krea2_custom_system_prompts', JSON.stringify(list));
         renderKreaSubmodes();
+      } else if (model === 'qwen') {
+        customQwenPrompts = list;
+        localStorage.setItem('qwen_custom_system_prompts', JSON.stringify(list));
+        renderQwenSubmodes();
       }
       updatePromptInputPlaceholder();
     }
 
     function openPresetManagerModal(model) {
-      currentPresetModel = model || (state.activeModel === 'ltx' ? 'ltx' : state.activeModel === 'krea' ? 'krea' : 'minimax');
+      currentPresetModel = model || (state.activeModel === 'ltx' ? 'ltx' : state.activeModel === 'krea' ? 'krea' : state.activeModel === 'qwen' ? 'qwen' : 'minimax');
       
       // Update Model Tab Active State
       if (presetModelTabs) {
@@ -6314,6 +6517,25 @@
       applyTheme(THEMES[nextIdx].id, true);
     }
 
+    /* -------------------------------------------------------------
+       STICKY MODEL TAB BAR
+       헤더 높이를 실측하여 모델 탭 바의 고정 위치(top offset)를 산출합니다.
+       ------------------------------------------------------------- */
+    function updateStickyHeaderOffset() {
+      var headerEl = document.querySelector('header');
+      var headerH = headerEl ? Math.round(headerEl.getBoundingClientRect().height) : 66;
+      if (!headerH || headerH < 1) headerH = 66;
+      document.documentElement.style.setProperty('--header-h', headerH + 'px');
+    }
+
+    function updateStickyNavState() {
+      var navEl = document.getElementById('modelNav');
+      if (!navEl) return;
+      var headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 66;
+      var rect = navEl.getBoundingClientRect();
+      navEl.classList.toggle('is-stuck', rect.top <= (headerH + 1));
+    }
+
     function init() {
       // 1. Multi-Theme Initialization (Default: Slate)
       const savedTheme = localStorage.getItem('prompt_studio_theme') || 'slate';
@@ -6352,6 +6574,8 @@
         });
       }
 
+      updateStickyHeaderOffset();
+      updateStickyNavState();
       updateApiStatus();
       updateNotificationBadge();
       renderNotificationList();
@@ -6364,6 +6588,23 @@
       }
       if (typeof updateModelGuideActiveRow === 'function') {
         updateModelGuideActiveRow(state.selectedGeminiModel || 'gemini-3.6-flash');
+      }
+
+      // Sticky 모델 탭 바: 뷰포트/폰트 변동 시 고정 오프셋 재계산
+      window.addEventListener('resize', function() {
+        updateStickyHeaderOffset();
+        updateStickyNavState();
+      });
+      window.addEventListener('scroll', updateStickyNavState, { passive: true });
+      window.addEventListener('load', function() {
+        updateStickyHeaderOffset();
+        updateStickyNavState();
+      });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function() {
+          updateStickyHeaderOffset();
+          updateStickyNavState();
+        });
       }
     }
 
@@ -6550,6 +6791,11 @@
     function renderActiveModelUI() {
       brandContainer.className = "brand " + state.activeModel;
 
+      // 상단 모델 탭 활성 표시 동기화 (클릭 외 프로그램적 전환 시에도 정확히 반영)
+      modelTabBtns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-model') === state.activeModel);
+      });
+
       const geminiChatContainer = document.getElementById('geminiChatContainer');
       const bottomHistorySection = document.getElementById('bottomHistorySection') || document.querySelector('.history-section');
 
@@ -6618,6 +6864,17 @@
         outputPanelTitle.textContent = 'LTX-Video 2.5 Blueprint';
         updateDurationDisplay();
         renderLtxSubmodes();
+
+      } else if (state.activeModel === 'qwen') {
+        headerLogoBadge.textContent = 'QW';
+        headerTitle.innerHTML = 'Qwen-Image 2.1 <span class="brand-sub-title">Prompt Architect</span>';
+        submodeHeaderTitle.innerHTML = '<span>🌄 QWEN-IMAGE 2.1 세부 모드 선택</span>';
+        var activeSubQwen = QWEN_SUBMODES.find(function(m) { return m.id === state.qwenSubMode; }) || QWEN_SUBMODES[0];
+        engineBadge.textContent = activeSubQwen.checkpoint;
+        dropDesc.textContent = 'Qwen-Image 2.1이 첨부한 참조 이미지(최대 10장)와 텍스트를 분석하여 T2I / 이미지 에디트 프롬프트를 정밀 생성합니다';
+        durationSection.style.display = 'none';
+        outputPanelTitle.textContent = 'Qwen-Image 2.1 Master Prompt';
+        renderQwenSubmodes();
       }
 
       updatePromptInputPlaceholder();
@@ -6737,6 +6994,107 @@
             state.kreaStyle = chip.getAttribute('data-style');
             renderKreaSubmodes();
           });
+        });
+      }
+    }
+
+    /* -------------------------------------------------------------
+       QWEN-IMAGE 2.1 (qwen2.1) SUB-MODE RENDERER
+       (KREA 2와 동일한 UI 형식: 서브모드 카드 + 스타일/편집 칩 + 프리셋 선택)
+       ------------------------------------------------------------- */
+    function renderQwenSubmodes() {
+      submodeGrid.className = 'submode-grid cols-3';
+      submodeGrid.innerHTML = QWEN_SUBMODES.map(function(sub) {
+        return '<div class="submode-card ' + (state.qwenSubMode === sub.id ? 'active' : '') + '" data-qwen-sub="' + sub.id + '">' +
+          '<div class="submode-title">' + sub.icon + ' ' + sub.name + '</div>' +
+          '<div class="submode-desc">' + sub.tag + '</div>' +
+        '</div>';
+      }).join('');
+
+      submodeGrid.querySelectorAll('.submode-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          state.qwenSubMode = card.getAttribute('data-qwen-sub');
+          renderQwenSubmodes();
+          updatePromptInputPlaceholder();
+        });
+      });
+
+      var activeSub = QWEN_SUBMODES.find(function(m) { return m.id === state.qwenSubMode; }) || QWEN_SUBMODES[0];
+      engineBadge.textContent = activeSub.checkpoint;
+
+      if (state.qwenSubMode === 't2i') {
+        submodeControlsContainer.innerHTML = [
+          '<div class="info-callout">',
+            '<span>ℹ️ <strong>공식 T2I 구조식</strong>: Subject + Setting + Style + Camera + Atmosphere + Detail modifiers 순서로 서술하고, 모든 속성은 대상 바로 옆에 배치합니다. (CFG 1 구동이므로 부정 프롬프트 대신 긍정 프롬프트에 필수 조건을 모두 명시)</span>',
+          '</div>',
+          '<div class="chips-section" style="margin-top: 10px;">',
+            '<span class="style-label">스타일:</span>',
+            QWEN_STYLES.map(function(st) {
+              return '<button class="style-chip ' + (state.qwenStyle === st.id ? 'active' : '') + '" data-qwen-style="' + st.id + '">' + st.icon + ' ' + st.name + '</button>';
+            }).join(''),
+          '</div>'
+        ].join('');
+        submodeControlsContainer.querySelectorAll('.style-chip').forEach(function(chip) {
+          chip.addEventListener('click', function() {
+            state.qwenStyle = chip.getAttribute('data-qwen-style');
+            renderQwenSubmodes();
+          });
+        });
+
+      } else if (state.qwenSubMode === 'image_edit') {
+        var activeEditType = QWEN_EDIT_TYPES.find(function(t) { return t.id === state.qwenEditType; }) || QWEN_EDIT_TYPES[0];
+        submodeControlsContainer.innerHTML = [
+          '<div class="info-callout">',
+            '<span>ℹ️ <strong>공식 편집 규칙</strong>: 변경할 요소를 먼저 선언하고, 반드시 <strong>보존할 요소</strong>(정체성 · 포즈 · 카메라 앵글 · 배경 · 조명)를 명시하세요. 참조 이미지는 "Image 1", "Image 2"처럼 순번으로 지칭합니다. (현재 참조 ' + state.attachedImages.length + '장 첨부됨)</span>',
+          '</div>',
+          '<div class="chips-section" style="margin-top: 10px;">',
+            '<span class="style-label">편집 유형:</span>',
+            QWEN_EDIT_TYPES.map(function(t) {
+              return '<button class="style-chip ' + (state.qwenEditType === t.id ? 'active' : '') + '" data-qwen-edit="' + t.id + '">' + t.icon + ' ' + t.name + '</button>';
+            }).join(''),
+          '</div>',
+          '<div class="applied-directive-card" style="margin-top: 8px;">',
+            '<div class="applied-header">',
+              '<span>🪄 적용 편집 구문</span>',
+              '<span class="applied-tag">Qwen Edit</span>',
+            '</div>',
+            '<div class="applied-content">' + activeEditType.keyword + '</div>',
+          '</div>'
+        ].join('');
+        submodeControlsContainer.querySelectorAll('.style-chip').forEach(function(chip) {
+          chip.addEventListener('click', function() {
+            state.qwenEditType = chip.getAttribute('data-qwen-edit');
+            renderQwenSubmodes();
+          });
+        });
+
+      } else if (state.qwenSubMode === 'system_prompt') {
+        var activePrompt = customQwenPrompts.find(function(p) { return p.id === state.selectedQwenPromptId; }) || customQwenPrompts[0];
+        submodeControlsContainer.innerHTML = [
+          '<div class="dropdown-row" style="display: flex; gap: 8px; align-items: center;">',
+            '<span class="dropdown-label">지침 선택:</span>',
+            '<select class="styled-select" id="qwenPresetSelect" style="flex: 1;">',
+              customQwenPrompts.map(function(p) {
+                return '<option value="' + p.id + '" ' + (p.id === activePrompt.id ? 'selected' : '') + '>' + p.name + '</option>';
+              }).join(''),
+            '</select>',
+            '<button class="btn-action-sm primary" id="btnManageQwenPresets" style="flex-shrink: 0; padding: 7px 12px; font-size: 11.5px;">⚙️ 프리셋 관리</button>',
+          '</div>',
+          '<div class="applied-directive-card" style="margin-top: 8px;">',
+            '<div class="applied-header">',
+              '<span>📌 적용 지침: ' + activePrompt.name + '</span>',
+              '<span class="applied-tag">Qwen Preset</span>',
+            '</div>',
+            '<div class="applied-content">' + (activePrompt.description || activePrompt.systemPrompt) + '</div>',
+          '</div>'
+        ].join('');
+        document.getElementById('qwenPresetSelect').addEventListener('change', function(e) {
+          state.selectedQwenPromptId = e.target.value;
+          renderQwenSubmodes();
+          updatePromptInputPlaceholder();
+        });
+        document.getElementById('btnManageQwenPresets').addEventListener('click', function() {
+          openPresetManagerModal('qwen');
         });
       }
     }
@@ -6893,6 +7251,22 @@
           generateBtnText.textContent = 'LTX-Video (' + state.ltxStyle.toUpperCase() + ') 생성 🚀';
           userPromptInput.placeholder = 'LTX-Video 2.5로 제작할 시네마틱 영화 장면을 입력하세요.\n예: 1970년대 아날로그 무드의 심야 기차 내부, 창밖으로 번개가 번쩍이며 승객의 얼굴에 그림자가 드리움';
         }
+      } else if (state.activeModel === 'qwen') {
+        var qwenStyleObj = QWEN_STYLES.find(function(s) { return s.id === state.qwenStyle; }) || QWEN_STYLES[0];
+        if (state.qwenSubMode === 'system_prompt') {
+          var activePrompt = customQwenPrompts.find(function(p) { return p.id === state.selectedQwenPromptId; }) || customQwenPrompts[0];
+          promptInputLabel.textContent = '✍️ Qwen-Image 2.1 요청 (' + activePrompt.name + ')';
+          generateBtnText.textContent = 'Qwen 2.1 (' + activePrompt.name + ') 생성 🚀';
+          userPromptInput.placeholder = '선택된 공식 지침 [' + activePrompt.name + ']에 전달할 장면·대상·편집 요구사항을 입력하세요.\n예: 비 오는 네온 거리에서 홀로 서 있는 탐정, 젖은 아스팔트 반사, 35mm 시네마틱 룩, 상반신 클로즈업, 네온 조명';
+        } else if (state.qwenSubMode === 'image_edit') {
+          promptInputLabel.textContent = '✍️ Qwen-Image 2.1 이미지 에디트 요청 (참조 ' + state.attachedImages.length + '장)';
+          generateBtnText.textContent = 'Qwen 2.1 에디트 지시문 생성 🚀';
+          userPromptInput.placeholder = '참조 이미지에서 바꿀 요소와 반드시 보존할 요소를 함께 입력하세요.\n예: Image 1의 인물이 Image 2의 검은 드레스를 입도록 바꾸고, 얼굴·포즈·카메라 앵글·배경 조명은 그대로 유지';
+        } else {
+          promptInputLabel.textContent = '✍️ Qwen-Image 2.1 T2I 요청 (' + qwenStyleObj.name + ')';
+          generateBtnText.textContent = 'Qwen 2.1 프롬프트 생성 🚀';
+          userPromptInput.placeholder = 'Qwen-Image 2.1로 생성할 이미지의 주체·배경·스타일·카메라·분위기를 자유롭게 입력하세요.\n예: 25세 한국인 여성, 둥근 얼굴, 카메라를 응시, 우아한 전통 의상, 상업 사진, 야외, 시네마틱 조명, 상반신 클로즈업, 자연광, 4K';
+        }
       }
     }
 
@@ -7022,6 +7396,11 @@
           renderPreviews();
         });
       });
+
+      // Qwen 이미지 에디트 모드: 참조 이미지 장수/안내 문구 실시간 갱신
+      if (state.activeModel === 'qwen' && state.qwenSubMode === 'image_edit') {
+        renderQwenSubmodes();
+      }
     }
 
     // Drag & Drop / Paste
@@ -8020,6 +8399,31 @@
         return ltxEng + "\n\n--- KOREAN TRANSLATION ---\n" + ltxKor;
       }
       
+      // QWEN-IMAGE 2.1 (qwen2.1) Mode
+      if (activeModel === 'qwen') {
+        var qStyle = state.qwenStyle || "photoreal";
+        var qStyleKeyword = "cinematic photography, natural light, sharp edges, 4K, high resolution, photographic lens, centered composition";
+        if (qStyle === "product") qStyleKeyword = "premium commercial product photography, studio softbox lighting, macro lens, clean seamless background, ultra high definition";
+        if (qStyle === "portrait") qStyleKeyword = "commercial portrait photography, half-body close-up, delicate light makeup, backlight, sharp edges, high resolution";
+        if (qStyle === "watercolor") qStyleKeyword = "watercolor style, delicate brushstrokes, texture of rice paper, artistic conception, best quality";
+        if (qStyle === "render_3d") qStyleKeyword = "3D render, C4D rendering, octane rendering, 32k ultra high definition, ambient light";
+        if (qStyle === "ink_painting") qStyleKeyword = "Chinese ink style, white space, artistic conception, gongbi painting, delicate brushstrokes";
+
+        if (state.qwenSubMode === 'image_edit') {
+          var qwenEditEng = "[Image edit instruction] " + cleanDescription + ". Keep the identity, facial features, pose, camera angle, background and lighting of the original image unchanged, and preserve every unedited region exactly as it is.";
+          var qwenEditKor = "Qwen-Image 2.1 이미지 에디트 지시문입니다.\n" +
+            "• 변경 대상: " + (userPrompt || "지정 영역") + "\n" +
+            "• 보존 요소: 인물 정체성, 얼굴 특징, 포즈, 카메라 앵글, 배경 및 조명 (수정하지 않은 영역은 그대로 유지)";
+          return qwenEditEng + "\n\n--- KOREAN TRANSLATION ---\n" + qwenEditKor;
+        }
+
+        var qwenEng = "Masterpiece image of " + cleanDescription + ", " + qStyleKeyword + ", highly detailed, cinematic atmosphere, artistic perfection.";
+        var qwenKor = "Qwen-Image 2.1 (" + qStyle + ") 공식 구조식 기반 텍스트→이미지 프롬프트입니다.\n" +
+          "• 주체/장면: " + (userPrompt || "고화질 이미지 씬") + "\n" +
+          "• 스타일/카메라/조명: " + qStyleKeyword;
+        return qwenEng + "\n\n--- KOREAN TRANSLATION ---\n" + qwenKor;
+      }
+
       // KREA 2 Mode
       var kStyle = kreaSubStyle || state.kreaStyle || "cinematic_photo";
       var styleKeyword = "Kodak Portra 400, depth of field, realistic skin pores, volumetric rim lighting, shot on 35mm lens, high contrast, subtle lens flare";
@@ -8103,6 +8507,42 @@
           baseSystem = "You are a world-class prompt engineer for the LTX-Video (LTX 2.5) video generation model.\n" +
             "Sub-mode: " + state.ltxStyle + ", Duration: " + state.duration + "s.\n" +
             "Compose a single paragraph of 4-8 descriptive English sentences containing all 6 mandatory elements: 1. Shot Establishment, 2. Scene Setting & Lighting, 3. Action Description (exact physical kinetics and contact mechanics), 4. Character Definition, 5. Camera Movement, 6. Audio Description.\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation.";
+        }
+      } else if (state.activeModel === 'qwen') {
+        var qwenStyleMeta = QWEN_STYLES.find(function(s) { return s.id === state.qwenStyle; }) || QWEN_STYLES[0];
+        if (state.qwenSubMode === 'system_prompt') {
+          var pq = customQwenPrompts.find(function(x) { return x.id === state.selectedQwenPromptId; }) || customQwenPrompts[0];
+          baseSystem = "You are a world-class prompt engineer for Qwen-Image-2.1 (unified text-to-image and image editing model, 7B visual generation DiT).\n" +
+            "[ACTIVE QWEN-IMAGE 2.1 SYSTEM PROMPT DIRECTIVE]\n" + pq.systemPrompt + "\n\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation.";
+        } else if (state.qwenSubMode === 'image_edit') {
+          var qwenEditMeta = QWEN_EDIT_TYPES.find(function(t) { return t.id === state.qwenEditType; }) || QWEN_EDIT_TYPES[0];
+          baseSystem = "You are a world-class prompt engineer for Qwen-Image-2.1 image editing (I2I, instruction-based editing).\n" +
+            "Edit focus: " + qwenEditMeta.name + " (official phrasing pattern: " + qwenEditMeta.keyword + ")\n" +
+            "Attached reference images: " + state.attachedImages.length + " (refer to them explicitly as Image 1, Image 2, ... in order).\n" +
+            "OFFICIAL RULES:\n" +
+            "1. Output ONE direct English editing instruction (40-100 words) written as a command, not as a story and not as a bullet list.\n" +
+            "2. Name the requested changes first, then explicitly state the elements to preserve: identity, facial features, pose, camera angle, background and lighting. Never leave preservation implicit.\n" +
+            "3. Keep the edit atomic: one primary change plus at most two tightly related secondary changes.\n" +
+            "4. Describe the edit region precisely when it is local: circled area, painted annotation, separate mask, upper-left, lower-right, foreground, background.\n" +
+            "5. For text edits, quote the exact target string inside double quotes.\n" +
+            "6. Reference preservation is semantic, not pixel-locked, so restate every element that must stay identical.\n" +
+            "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation of the edit instruction.";
+        } else {
+          baseSystem = "You are a world-class prompt engineer for Qwen-Image-2.1 text-to-image (T2I) generation.\n" +
+            "Style preference: " + qwenStyleMeta.name + "\n" +
+            "OFFICIAL QWEN-IMAGE PROMPT FORMULA - FOLLOW STRICTLY:\n" +
+            "Basic formula: Subject + Setting + Style\n" +
+            "Advanced formula: Subject + Setting + Style + Camera + Atmosphere + Detail modifiers\n" +
+            "RULES:\n" +
+            "1. Output ONE concrete, natural-language English paragraph (70-130 words). No bullet lists, no headings, no JSON.\n" +
+            "2. Order the description as: medium -> subject -> action -> relationships -> composition -> lighting -> materials, and place exact lettering last.\n" +
+            "3. Keep every attribute directly adjacent to the object it describes.\n" +
+            "4. Use the official visual vocabulary for camera (shot size, perspective, lens type, composition), atmosphere (mood) and detail modifiers (4K, high resolution, ultra high definition, sharp edges, best quality).\n" +
+            "5. Use the official lighting keywords when relevant: natural light, sunlight, moonlight, starlight, backlight, neon light, ambient light.\n" +
+            "6. Qwen-Image-2.1 is sampled at CFG 1, so the negative-conditioning branch does NOT guide generation. Never rely on a negative prompt; restate every essential requirement inside the positive prompt.\n" +
+            "7. If exact lettering is requested, wrap it in double quotes and specify its position and hierarchy.\n" +
             "End with '--- KOREAN TRANSLATION ---' and a faithful Korean translation.";
         }
       }
@@ -8385,8 +8825,8 @@
       var latencyBadgeHtml = latencySec ? ('<span class="latency-badge">⚡ ' + latencySec + '초 소요</span>') : '';
       var currentInput = (userInputText !== undefined && userInputText !== null) ? userInputText : userPromptInput.value.trim();
       var currentImages = sanitizeImagesForHistory(state.attachedImages);
-      var currentSubMode = state.activeModel === 'minimax' ? state.minimaxStyle : (state.activeModel === 'ltx' ? state.ltxStyle : state.kreaSubMode);
-      var currentPresetId = state.activeModel === 'minimax' ? state.selectedMinimaxPresetId : (state.activeModel === 'ltx' ? state.selectedLtxPresetId : (state.activeModel === 'krea' ? state.selectedKreaPromptId : null));
+      var currentSubMode = state.activeModel === 'minimax' ? state.minimaxStyle : (state.activeModel === 'ltx' ? state.ltxStyle : (state.activeModel === 'qwen' ? state.qwenSubMode : state.kreaSubMode));
+      var currentPresetId = state.activeModel === 'minimax' ? state.selectedMinimaxPromptId : (state.activeModel === 'ltx' ? state.selectedLtxPromptId : (state.activeModel === 'krea' ? state.selectedKreaPromptId : (state.activeModel === 'qwen' ? state.selectedQwenPromptId : null)));
 
       var cuts = null;
       if (state.activeModel === 'krea' && state.kreaSubMode === 'storyboard') {
@@ -8683,7 +9123,7 @@
         return;
       }
 
-      // 3. 프롬프트 생성 모델(MiniMax / LTX / KREA)의 경우
+      // 3. 프롬프트 생성 모델(MiniMax / LTX / KREA / Qwen)의 경우
       // 3-1. 사용자 요청 텍스트 입력창 복원
       if (userPromptInput) {
         userPromptInput.value = item.userInput || '';
@@ -8693,16 +9133,20 @@
       // 3-2. 세부 모드 및 프리셋 복원
       if (targetModel === 'minimax') {
         if (item.subMode) state.minimaxStyle = item.subMode;
-        if (item.presetId) state.selectedMinimaxPresetId = item.presetId;
+        if (item.presetId) state.selectedMinimaxPromptId = item.presetId;
         renderMinimaxSubmodes();
       } else if (targetModel === 'ltx') {
         if (item.subMode) state.ltxStyle = item.subMode;
-        if (item.presetId) state.selectedLtxPresetId = item.presetId;
+        if (item.presetId) state.selectedLtxPromptId = item.presetId;
         renderLtxSubmodes();
       } else if (targetModel === 'krea') {
         if (item.subMode) state.kreaSubMode = item.subMode;
         if (item.presetId) state.selectedKreaPromptId = item.presetId;
         renderKreaSubmodes();
+      } else if (targetModel === 'qwen') {
+        if (item.subMode) state.qwenSubMode = item.subMode;
+        if (item.presetId) state.selectedQwenPromptId = item.presetId;
+        renderQwenSubmodes();
       }
 
       // 3-3. 옵션 복원 (재생 시간 / 프레임 수)
